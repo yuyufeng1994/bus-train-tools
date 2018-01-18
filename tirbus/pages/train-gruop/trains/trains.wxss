@@ -101,8 +101,7 @@
 }
 
 .train-view-hover {
-  border:1rpx solid #39f;
-  height: 196rpx;
+  background-color:  #DDDDDD;
 }
 
 .text-brief{

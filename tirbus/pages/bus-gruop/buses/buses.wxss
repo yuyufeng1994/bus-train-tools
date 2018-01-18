@@ -75,6 +75,5 @@
 }
 
 .bus-view-hover {
-  border:1rpx solid #39f;
-  height: 98rpx;
+  background-color: #DDDDDD;
 }
