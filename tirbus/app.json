@@ -5,6 +5,7 @@
     "pages/bus-gruop/buses/buses",
     "pages/train-gruop/train/train",
     "pages/train-gruop/trains/trains",
+    "pages/train-gruop/citys/citys",
     "pages/me/me"
   ],
   "window":{

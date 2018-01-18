@@ -1,5 +1,7 @@
 Page({
   data: {
+    begin: null,
+    end: null,
     date: null
   },
 
@@ -17,17 +19,45 @@ Page({
       date: e.detail.value
     })
   },
-  onLoad:function(){
-    var day = new Date()
-    day.setTime(day.getTime() + 24 * 60 * 60 * 1000);
-    var year = day.getFullYear();       //年
-    var month = day.getMonth() + 1;     //月
-    var day = day.getDate();            //日
-    
-    if (month < 10) { month = "0" + month; }
-    if (day < 10) { day = "0" + day; }
-    this.setData({ date: year + '-' + month + '-' + day })
+  onLoad: function (options) {
+    this.setData({
+      begin: options.begin,
+      end: options.end,
+      date: options.date
+    })
+
+    if (this.data.date == null || this.data.date.trim() == ""){
+      var day = new Date()
+      day.setTime(day.getTime() + 24 * 60 * 60 * 1000);
+      var year = day.getFullYear();       //年
+      var month = day.getMonth() + 1;     //月
+      var day = day.getDate();            //日
+
+      if (month < 10) { month = "0" + month; }
+      if (day < 10) { day = "0" + day; }
+      this.setData({date: year + '-' + month + '-' + day })
+    }
+
+    if (this.data.begin == null || this.data.begin.trim() == "") {
+      this.setData({ begin:'上海' })
+    }
+
+    if (this.data.end == null || this.data.end.trim() == "") {
+      this.setData({ end: '北京' })
+    }
+
+
+
+
   }, onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
+  }, bindBeginCityView: function () {
+    wx.redirectTo({
+      url: '../citys/citys?begin=&end=' + this.data.end + '&date=' + this.data.date,
+    })
+  }, bindEndCityView: function () {
+    wx.redirectTo({
+      url: '../citys/citys?begin=' + this.data.begin + '&end=&date=' + this.data.date,
+    })
   }
 })

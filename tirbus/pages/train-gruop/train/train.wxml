@@ -3,14 +3,14 @@
   <view class='flex-box'>
     <view class='flex-box-header'>出发城市:</view>
     <view class="flex-box-content">
-      <input name='beginCity' value='上海' placeholder="" />
+      <input name='beginCity' value='{{begin}}' disabled='disabled' placeholder="" bindtap='bindBeginCityView' />
     </view>
   </view>
 
   <view class="flex-box">
     <view class='flex-box-header'>目的城市:</view>
     <view class="flex-box-content">
-      <input name='endCity' value='成都' placeholder="" />
+      <input name='endCity' value='{{end}}' placeholder="" disabled='disabled' bindtap='bindEndCityView' />
     </view>
   </view>
 

@@ -74,8 +74,8 @@ Page({
 
   },
   bindTrainView: function () {
-    wx.navigateTo({ url: "../train-gruop/train/train" })
-
+    wx.navigateTo({
+      url: "../train-gruop/train/train?begin=&end=&date=" })
   }, bindBusView: function () {
     wx.navigateTo({ url: "../bus-gruop/bus/bus" })
   },
