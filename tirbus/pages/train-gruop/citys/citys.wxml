@@ -1,0 +1,9 @@
+<view class="search-box">
+  <input placeholder="中文/拼音/首字母" class='search-input' bindinput='bindSarchInput' placeholder-class='search-input-placeholder' />
+</view>
+
+<view class='city-item-content'>
+  <view wx:for="{{cityResults}}" wx:key="unique" class='city-item'>
+    <view data-cityname='{{item.cityName}}' bindtap='citySelected' >{{item.cityName}}</view>
+  </view>
+</view>
