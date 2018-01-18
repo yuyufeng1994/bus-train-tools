@@ -1,0 +1,111 @@
+/* pages/buses/buses.wxss */
+
+.train-view {
+  text-align: center;
+  font-size: 25rpx;
+  line-height: 75rpx;
+  display: flex;
+  flex-direction: column;
+  height: 200rpx;
+  /* border: 1rpx solid #CCCCCC;  */
+  margin: 10rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.train-view-up {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  height: 150rpx;
+  /* border: 1px solid blue; */
+}
+
+.train-view-up-item {
+  width: 33%;
+  /* border: 1px solid blue; */
+}
+
+.train-view-down {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  height: 50rpx;
+  line-height: 48rpx;
+  border-top: 1rpx dashed #ccc;
+}
+
+.train-view-station {
+  font-size: 35rpx;
+}
+
+.train-view-time {
+  font-size: 40rpx;
+  line-height: 50rpx;
+}
+
+.train-view-up-item-line {
+  height: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.train-view-up-item-line-string {
+  margin-left: 10%;
+  width: 80%;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.train-view-up-item-line-arrow {
+  width: 10%;
+  border: 10rpx solid transparent;
+  border-left: 20rpx solid #ccc;
+}
+
+.train-list-content {
+  margin-top: 80rpx;
+  /* height: 1150rpx; */
+  width: 100%;
+  /* border: solid 1px red;     *//* overflow: scroll; */
+}
+
+.title-date {
+  width: 280rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  /* line-height: 80rpx; */
+  color: #fff;
+  text-align: center;
+  background-color: #39f;
+  border-radius: 10rpx;
+}
+
+.title-date-center {
+  width: 320rpx;
+  color: #39f;
+  background-color: #fff;
+}
+
+.title-content {
+  z-index: 100;
+  top: 0;
+  position: fixed;
+  justify-content: center;
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #39f;
+  /* border: solid 1px red; */
+}
+
+.train-view-hover {
+  border:1rpx solid #39f;
+  height: 196rpx;
+}
+
+.text-brief{
+  text-align: center;
+  font-size: 24rpx;
+}

@@ -1,0 +1,74 @@
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  border-bottom: #CCCCCC solid 1px;
+  margin: 30rpx;
+  width: 600rpx;
+  padding:15rpx;
+  height: 50rpx;
+}
+
+.btn-area{
+  margin: 30rpx;
+  width: 600rpx;
+}
+
+.flex-box-header{
+  width: 200rpx;
+  font-size: 30rpx;
+  margin-top: 25rpx;
+  /* line-height: 60rpx; */
+}
+
+.flex-box-content{
+  width: 300rpx;
+  margin-top: 15rpx;
+}
+
+.form-content{
+  margin-top:30rpx; 
+  display: flex;
+  margin-left: 20rpx;
+  width: 700rpx;
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+  height: 500rpx;
+  /* box-shadow: 5rpx 5rpx 5rpx #CCCCCC; */
+  /* border: 3rpx solid #CCCCCC;  */
+}
+
+
+.bus-view{
+  display: flex;
+  flex-direction: row;
+  width: 700rpx;
+  height: 100rpx;
+  margin:20rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #CCCCCC; 
+}
+
+.bus-view-left{
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  width: 200rpx;
+}
+
+.bus-view-right{
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+}
+
+.bus-view-right-item{
+  text-align: center;
+  margin: 5rpx;
+}
+
+.btn-query{
+  background-color:#3399FF;
+  color:#FFFFFF;
+}
+

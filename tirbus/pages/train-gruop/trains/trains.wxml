@@ -1,0 +1,47 @@
+<view class='title-content'>
+  <view class='title-date' bindtap='bindDayDecr'>前一天</view>
+  <view class='title-date title-date-center'>{{leaveDate}}</view>
+  <view class='title-date' bindtap='bindDayIncr'>后一天</view>
+</view>
+<view class='text-brief'>数据来源：12306.cn</view>
+<scroll-view scroll-y="true" class='train-list-content'>
+  <view wx:if="{{trains == null || trains.length<= 0}}" style="color:#CCCCCC;text-align:center;margin:20rpx;">{{errorMsg}}</view>
+  <view wx:for="{{trains}}" wx:key="unique">
+    <view class='train-view' hover-class='train-view-hover' bindtap='trainTouched'>
+
+      <!-- 车票区域 -->
+      <view class='train-view-up'>
+        <view class='train-view-up-item'>
+          <view class='train-view-station'>{{item.beginStation}}</view>
+          <view class='train-view-time'>{{item.beginTime}}</view>
+        </view>
+        <view class='train-view-up-item'>
+          <view>{{item.trainNo}}</view>
+          <view class='train-view-up-item-line'>
+            <view class='train-view-up-item-line-string'></view><view class='train-view-up-item-line-arrow'></view>
+          </view>
+          <view>{{item.overTime}}</view>
+        </view>
+        <view class='train-view-up-item'>
+          <view class='train-view-station'>{{item.endStation}}</view>
+          <view class='train-view-time'>{{item.endTime}}</view>
+        </view>
+      </view>
+
+      <!-- 余座区域 -->
+      <view class='train-view-down'>
+        <view wx:if="{{item.seat2.length>0}}">二等座:{{item.seat2}} / </view>
+        <view wx:if="{{item.seat1.length>0}}">一等座:{{item.seat1}} / </view>
+        <view wx:if="{{item.seatBD.length>0}}">商务座:{{item.seatBD}} /</view>
+        <view wx:if="{{item.bedHard.length>0}}">硬卧:{{item.bedHard}} /</view>
+        <view wx:if="{{item.seatHard.length>0}}">硬座:{{item.seatHard}} /</view>
+        <view wx:if="{{item.seatNo.length>0}}">无座:{{item.seatNo}} /</view>
+        <view wx:if="{{item.bedMove.length>0}}"> 动卧:{{item.bedMove}} /</view>
+        <view wx:if="{{item.bedSoft.length>0}}"> 软卧:{{item.bedSoft}} /</view>
+        <view wx:if="{{item.bedSoftHigh.length>0}}"> 高级软卧:{{item.bedSoftHigh}} /</view>
+        <view wx:if="{{item.seatSoft.length>0}}">软座:{{item.seatSoft}} /</view>
+      </view>
+
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,23 @@
+<view class='title-content'>
+  <view class='title-date' bindtap='bindDayDecr'>前一天</view>
+  <view class='title-date title-date-center'>{{leaveDate}}</view>
+  <view class='title-date' bindtap='bindDayIncr'>后一天</view>
+</view>
+
+<scroll-view scroll-y="true" class='bus-list-content'>
+  <view wx:if="{{buses == null || buses.length <= 0}}" style="color:#CCCCCC;text-align:center;margin:20rpx;" >{{errorMsg}}</view>
+  <view wx:for="{{buses}}" wx:key="unique">
+    <view class='bus-view' hover-class='bus-view-hover' bindtap='busTouched'>
+      <view class='bus-view-left'>{{item.busTime}}</view>
+      <view class='bus-view-right'>
+        <view class='bus-view-right-item'>{{item.departureStation}}</view>
+        <view class='bus-view-right-item'>{{item.destination}}</view>
+      </view>
+      <view class='bus-view-right'>
+        <view class='bus-view-right-item' style='color:orange'>￥{{item.ticketPrice}}</view>
+        <view class='bus-view-right-item' style='color:#999999'>余票:{{item.ticketLeft}}</view>
+      </view>
+    <!-- {{item.departureStation}}-{{item.destination}}-{{item.busTime}}-{{item.ticketPrice}}-{{item.ticketLeft}} -->
+    </view>
+  </view>
+</scroll-view>

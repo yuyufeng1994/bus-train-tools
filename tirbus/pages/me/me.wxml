@@ -1,0 +1,14 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <view wx:if="{{!hasUserInfo && canIUse}}"> 获取用户信息中.. </view>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+

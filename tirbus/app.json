@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/bus-gruop/bus/bus",
+    "pages/bus-gruop/buses/buses",
+    "pages/train-gruop/train/train",
+    "pages/train-gruop/trains/trains",
+    "pages/me/me"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#3399FF",
+    "navigationBarTextStyle":"#FFFFFF",
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "巴铁助手"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/bar/wxb.png",
+        "selectedIconPath": "image/bar/wxb-active.png",
+        "text": "首页"
+      },{
+          "pagePath": "pages/me/me",
+          "iconPath": "image/bar/account.png",
+          "selectedIconPath": "image/bar/account-active.png",
+          "text": "我的"
+        
+      }
+    ]
+  }
+}
