@@ -138,6 +138,11 @@ Page({
   onShareAppMessage: function () {
   
   }, bindDayDecr: function () {
+        wx.pageScrollTo({
+            scrollTop: 0,
+            duration: 0
+        })
+
     var that = this;
     var day = new Date(this.data.leaveDate)
     day.setTime(day.getTime() - 24 * 60 * 60 * 1000);
@@ -193,6 +198,11 @@ Page({
 
   },
   bindDayIncr: function () {
+      wx.pageScrollTo({
+          scrollTop: 0,
+          duration: 0
+      })
+
     var that = this;
     var day = new Date(this.data.leaveDate)
     day.setTime(day.getTime() + 24 * 60 * 60 * 1000);

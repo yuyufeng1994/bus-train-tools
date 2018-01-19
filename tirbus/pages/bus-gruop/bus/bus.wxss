@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: row;
   border-bottom: #CCCCCC solid 1px;
-  margin: 30rpx;
+  margin: 28rpx;
   width: 600rpx;
   padding:10rpx;
   height: 70rpx;
 }
 
 .btn-area{
-  margin: 30rpx;
+  margin: 40rpx;
   width: 600rpx;
 }
 
@@ -25,6 +25,11 @@
 .flex-box-content{
   width: 70%;
   margin-top: 10rpx; 
+  font-size: 45rpx;
+}
+.flex-box-content-pricker{
+  margin-top: 0rpx; 
+  width: 70%;
   font-size: 45rpx;
 }
 

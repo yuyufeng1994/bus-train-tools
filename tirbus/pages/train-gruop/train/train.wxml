@@ -16,7 +16,7 @@
 
   <view class="flex-box">
     <view class='flex-box-header'>出发日期</view>
-    <picker mode="date" name='leaveDate' class='flex-box-content' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange" >
+    <picker mode="date" name='leaveDate' class='flex-box-content-pricker' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange" >
       <view class='input-city'>{{date}}</view>
     </picker>
   </view>

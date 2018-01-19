@@ -15,5 +15,6 @@ page{
   padding: 10rpx;
   font-size:28rpx; 
   background-color: #FFFFCC;
+  color:#CC9933;
 }
  

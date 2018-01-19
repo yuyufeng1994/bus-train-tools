@@ -111,6 +111,11 @@ Page({
 
   },
   bindDayDecr: function () {
+      wx.pageScrollTo({
+          scrollTop: 0,
+          duration: 0
+      })
+
     var day = new Date(this.data.leaveDate)
     day.setTime(day.getTime() - 24 * 60 * 60 * 1000);
 
@@ -157,6 +162,11 @@ Page({
     
   },
   bindDayIncr: function () {
+      wx.pageScrollTo({
+          scrollTop: 0,
+          duration: 0
+      })
+
     var day = new Date(this.data.leaveDate)
     day.setTime(day.getTime() + 24 * 60 * 60 * 1000);
     var year = day.getFullYear();       //年

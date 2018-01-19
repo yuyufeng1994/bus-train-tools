@@ -22,7 +22,17 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log('onLoad')
+    if (this.data.date == null || this.data.date.trim() == "") {
+      var day = new Date()
+      day.setTime(day.getTime() + 24 * 60 * 60 * 1000);
+      var year = day.getFullYear();       //年
+      var month = day.getMonth() + 1;     //月
+      var day = day.getDate();            //日
+
+      if (month < 10) { month = "0" + month; }
+      if (day < 10) { day = "0" + day; }
+      this.setData({ date: year + '-' + month + '-' + day })
+    }
   }, onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
   }, bindBeginCityView: function () {
@@ -35,21 +45,7 @@ Page({
     })
   }, onShow: function () {
 
-    console.log('onShow')
-
     this.setData({ begin: app.globalData.trainBeginCity })
     this.setData({ end: app.globalData.trainEndCity })
-
-    if (this.data.date == null || this.data.date.trim() == "") {
-      var day = new Date()
-      day.setTime(day.getTime() + 24 * 60 * 60 * 1000);
-      var year = day.getFullYear();       //年
-      var month = day.getMonth() + 1;     //月
-      var day = day.getDate();            //日
-
-      if (month < 10) { month = "0" + month; }
-      if (day < 10) { day = "0" + day; }
-      this.setData({ date: year + '-' + month + '-' + day })
-    }
   }
 })

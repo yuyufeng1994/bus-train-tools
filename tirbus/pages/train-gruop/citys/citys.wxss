@@ -1,3 +1,15 @@
+.a-z{
+  width: 35rpx;
+  position: fixed;
+  top: 112rpx;
+  text-align: center;
+  right: 5rpx;
+  color: #3399CC;
+  font-size: 30rpx;
+  /* border: 1rpx solid #3399CC; */
+}
+
+
 .city-item-content {
   display: flex;
   flex-direction: column;
@@ -7,14 +19,22 @@
 
 .city-item {
   background: #fff;
-  margin-top: 5rpx;
-   /* width: 80%;  */
+  /* margin-top: 5rpx; */
+  width: 85%;  
   padding-left: 10%;
   height: 90rpx;
   font-size: 45rpx;
   line-height: 100rpx;
-    /* border: 1rpx solid red;   */
+  border-bottom: 1rpx solid #CCCCCC;    
 }
+
+.city-item-A-Z{
+  width: 85%;
+  height: 40rpx;
+  font-size: 30rpx;
+  padding-left: 10%;
+}
+
 
 .search-box {
   top: 0;
@@ -24,6 +44,7 @@
   background: #eee;
   height: 110rpx;
   font-size: 30rpx;
+  border-bottom:1rpx solid #DDDDDD; 
      /* border: 1rpx solid red;   */
 }
 
