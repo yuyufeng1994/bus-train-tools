@@ -7,7 +7,7 @@
   </view>
 </view>
 <view class='city-item-content'>
-  <view wx:for="{{cityResults}}" wx:key="unique">
+  <view wx:for="{{cityResults}}" wx:key="unique" class='city-item-view'>
     <view wx:if="{{item.cityPinYin.length > 1}}" class='city-item' data-cityname='{{item.cityName}}' bindtap='citySelected'>{{item.cityName}}</view>
     <view wx:else class='city-item-A-Z' data-cityname='{{item.cityName}}'>{{item.cityName}}</view>
     <!-- <view data-cityname='{{item.cityName}}' bindtap='citySelected' >{{item.cityName}}</view> -->

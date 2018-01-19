@@ -2,7 +2,6 @@
 //获取应用实例
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -15,14 +14,36 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    currentCity:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if ('未知' == app.globalData.locationCity){
+      wx.canIUse('getLocation')
+      wx.getLocation({
+        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+        success: function (res) {
+          var latitude = res.latitude
+          var longitude = res.longitude
+          wx.request({
+            url: 'https://www.yuyufeng.top/mp/query-city-name?location=' + latitude + ',' + longitude,
+            data: {},
+            header: {
+              'Content-Type': 'application/json'
+            },
+            success: function (res) {
+              var city = res.data.data;
+              city = city.replace("市","")
+              app.globalData.locationCity = city;
+            }
+          })
+        }
+      })
+    }
   },
 
   /**

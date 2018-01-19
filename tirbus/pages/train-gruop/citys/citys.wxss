@@ -1,11 +1,11 @@
 .a-z{
-  width: 35rpx;
+  width: 70rpx;
   position: fixed;
-  top: 112rpx;
   text-align: center;
   right: 5rpx;
   color: #3399CC;
-  font-size: 30rpx;
+  font-size: 25rpx;
+  top:20%;
   /* border: 1rpx solid #3399CC; */
 }
 
@@ -16,6 +16,10 @@
   justify-content: center;
   margin-top: 110rpx;
   background-color: #FFFFFF;
+}
+
+.city-item-view{
+  width: 100%;
 }
 
 .city-item {
@@ -32,7 +36,7 @@
 }
 
 .city-item-A-Z{
-  width: 100%;
+  width: 80%;
   height: 40rpx;
   font-size: 30rpx;
   padding-left: 10%;
