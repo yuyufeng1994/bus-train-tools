@@ -1,5 +1,9 @@
 //app.js
 App({
+  globalData:{
+    trainBeginCity:'杭州',
+    trainEndCity:'北京'
+  },
   onLaunch: function () {
     // 展示本地存储能力
   
@@ -30,8 +34,5 @@ App({
         }
       }
     })
-  },
-  globalData: {
-    userInfo: null
   }
 })

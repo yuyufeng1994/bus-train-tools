@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
   data: {
     begin: null,
@@ -20,13 +22,25 @@ Page({
     })
   },
   onLoad: function (options) {
-    this.setData({
-      begin: options.begin,
-      end: options.end,
-      date: options.date
+    console.log('onLoad')
+  }, onPullDownRefresh: function () {
+    wx.stopPullDownRefresh();
+  }, bindBeginCityView: function () {
+    wx.navigateTo({
+      url: '../citys/citys?cityType=begin',
     })
+  }, bindEndCityView: function () {
+    wx.navigateTo({
+      url: '../citys/citys?cityType=end',
+    })
+  }, onShow: function () {
 
-    if (this.data.date == null || this.data.date.trim() == ""){
+    console.log('onShow')
+
+    this.setData({ begin: app.globalData.trainBeginCity })
+    this.setData({ end: app.globalData.trainEndCity })
+
+    if (this.data.date == null || this.data.date.trim() == "") {
       var day = new Date()
       day.setTime(day.getTime() + 24 * 60 * 60 * 1000);
       var year = day.getFullYear();       //年
@@ -35,29 +49,7 @@ Page({
 
       if (month < 10) { month = "0" + month; }
       if (day < 10) { day = "0" + day; }
-      this.setData({date: year + '-' + month + '-' + day })
+      this.setData({ date: year + '-' + month + '-' + day })
     }
-
-    if (this.data.begin == null || this.data.begin.trim() == "") {
-      this.setData({ begin:'上海' })
-    }
-
-    if (this.data.end == null || this.data.end.trim() == "") {
-      this.setData({ end: '北京' })
-    }
-
-
-
-
-  }, onPullDownRefresh: function () {
-    wx.stopPullDownRefresh();
-  }, bindBeginCityView: function () {
-    wx.redirectTo({
-      url: '../citys/citys?begin=&end=' + this.data.end + '&date=' + this.data.date,
-    })
-  }, bindEndCityView: function () {
-    wx.redirectTo({
-      url: '../citys/citys?begin=' + this.data.begin + '&end=&date=' + this.data.date,
-    })
   }
 })
