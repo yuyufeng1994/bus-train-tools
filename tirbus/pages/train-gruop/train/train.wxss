@@ -4,8 +4,8 @@
   border-bottom: #CCCCCC solid 1px;
   margin: 30rpx;
   width: 600rpx;
-  padding:15rpx;
-  height: 50rpx;
+  padding:10rpx;
+  height: 70rpx;
 }
 
 .btn-area{
@@ -14,26 +14,29 @@
 }
 
 .flex-box-header{
-  width: 200rpx;
+  width: 25%;
   font-size: 30rpx;
-  margin-top: 25rpx;
+  margin-top: 10rpx;
+  color: #999999;
+
   /* line-height: 60rpx; */
 }
 
 .flex-box-content{
-  width: 300rpx;
-  margin-top: 15rpx;
+  width: 70%;
+  margin-top: 10rpx; 
+  font-size: 45rpx;
 }
 
 .form-content{
   margin-top:30rpx; 
   display: flex;
-  margin-left: 20rpx;
-  width: 700rpx;
+  margin-left: 5%;
+  width: 90%;
   background-color: #FFFFFF;
   border-radius: 20rpx;
   /* border: 3rpx solid #CCCCCC;  */
-  height: 500rpx;
+  height: 530rpx;
 }
 
 
@@ -69,7 +72,11 @@
 }
 
 .btn-query{
-  background-color:#3399FF;
+  background-color:#3399CC;
   color:#FFFFFF;
 }
 
+
+.input-city{
+     /* border: 1rpx solid #CCCCCC;  */
+}

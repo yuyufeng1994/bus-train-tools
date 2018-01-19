@@ -1,23 +1,23 @@
 <view class='warning-top'>目前支持查询功能。余票监控即将上线，尽请期待。</view>
 <form bindsubmit="formSubmit" bindreset="formReset" class='form-content'>
   <view class='flex-box'>
-    <view class='flex-box-header'>出发城市:</view>
+    <view class='flex-box-header'>出发城市</view>
     <view class="flex-box-content">
-      <input name='beginCity' value='{{begin}}' disabled='disabled' placeholder="" bindtap='bindBeginCityView' />
+      <input name='beginCity' value='{{begin}}' disabled='disabled' placeholder="" bindtap='bindBeginCityView' class='input-city'/>
     </view>
   </view>
 
   <view class="flex-box">
-    <view class='flex-box-header'>目的城市:</view>
+    <view class='flex-box-header'>目的城市</view>
     <view class="flex-box-content">
-      <input name='endCity' value='{{end}}' placeholder="" disabled='disabled' bindtap='bindEndCityView' />
+      <input name='endCity' value='{{end}}' placeholder="" disabled='disabled' bindtap='bindEndCityView' class='input-city'/>
     </view>
   </view>
 
   <view class="flex-box">
-    <view class='flex-box-header'>出发日期:</view>
-    <picker mode="date" name='leaveDate' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange">
-      <view class='flex-box-content'>{{date}}</view>
+    <view class='flex-box-header'>出发日期</view>
+    <picker mode="date" name='leaveDate' class='flex-box-content' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange" >
+      <view class='input-city'>{{date}}</view>
     </picker>
   </view>
 

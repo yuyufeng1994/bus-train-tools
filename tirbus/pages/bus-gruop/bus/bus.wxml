@@ -1,24 +1,23 @@
-<view class='warning-top'>目前支持浙江、上海、江苏、安徽地区汽车票查询服务。</view>
-
+<view class='warning-top'>目前支持查询功能。余票监控即将上线，尽请期待。</view>
 <form bindsubmit="formSubmit" bindreset="formReset" class='form-content'>
   <view class='flex-box'>
-    <view class='flex-box-header'>出发城市:</view>
+    <view class='flex-box-header'>出发城市</view>
     <view class="flex-box-content">
-      <input name='beginCity' value='苏州' placeholder="" />
+      <input name='beginCity' value='{{begin}}' placeholder=""  class='input-city'/>
     </view>
   </view>
 
   <view class="flex-box">
-    <view class='flex-box-header'>目的城市:</view>
+    <view class='flex-box-header'>目的城市</view>
     <view class="flex-box-content">
-      <input name='endCity' value='平湖' placeholder="" />
+      <input name='endCity' value='{{end}}' placeholder=""   class='input-city'/>
     </view>
   </view>
 
   <view class="flex-box">
-    <view class='flex-box-header'>出发日期:</view>
-    <picker mode="date" name='leaveDate' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange">
-      <view class='flex-box-content'>{{date}}</view>
+    <view class='flex-box-header'>出发日期</view>
+    <picker mode="date" name='leaveDate' class='flex-box-content' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange" >
+      <view class='input-city'>{{date}}</view>
     </picker>
   </view>
 

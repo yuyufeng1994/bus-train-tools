@@ -1,5 +1,7 @@
 Page({
   data: {
+    begin:'苏州',
+    end:'平湖',
     date: null
   },
 
