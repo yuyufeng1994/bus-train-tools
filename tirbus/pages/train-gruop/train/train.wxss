@@ -5,7 +5,7 @@
   margin: 28rpx;
   width: 600rpx;
   padding:10rpx;
-  height: 70rpx;
+   height: 70rpx; 
 }
 
 .btn-area{
@@ -41,7 +41,7 @@
   background-color: #FFFFFF;
   border-radius: 20rpx;
   /* border: 3rpx solid #CCCCCC;  */
-  height: 530rpx;
+  /* height: 600rpx; */
 }
 
 
@@ -81,6 +81,17 @@
   color:#FFFFFF;
 }
 
+.history-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #CCCCCC;
+  font-size: 30rpx;
+}
+.history-item{
+  margin:0 30rpx;
+  margin-bottom: 30rpx;
+}
 
 
 .input-city{

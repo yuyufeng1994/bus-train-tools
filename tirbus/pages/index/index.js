@@ -22,9 +22,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(":::"+app.globalData.locationCity)
+    // console.log(":::"+app.globalData.locationCity)
     if ('未知' == app.globalData.locationCity){
-      wx.canIUse('getLocation')
+      // wx.authorize({scope:'scope.userLocation'})
       wx.getLocation({
         type: 'gcj02', //返回可以用于wx.openLocation的经纬度
         success: function (res) {

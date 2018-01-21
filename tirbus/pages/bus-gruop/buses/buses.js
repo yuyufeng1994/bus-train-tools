@@ -9,7 +9,8 @@ Page({
     leaveDate: null,
     buses:{},
     nobusFlag:false,
-    errorMsg:'网络繁忙，请稍后再试'
+    errorMsg:'网络繁忙，请稍后再试',
+    bindDayDecrShow:true,
   },
   busTouched:function(e){
     console.log(e)
@@ -73,7 +74,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //如果当前时间前一天小于今天，则置灰
+    var todayTemp = new Date();
+    var yearTemp = todayTemp.getFullYear();       //年
+    var monthTemp = todayTemp.getMonth() + 1;     //月
+    var dayTemp = todayTemp.getDate();            //日
+    if (monthTemp < 10) { monthTemp = "0" + monthTemp; }
+    if (dayTemp < 10) { dayTemp = "0" + dayTemp; }
+    var todayStr = yearTemp + '-' + monthTemp + '-' + dayTemp;
 
+    if (this.data.leaveDate == todayStr) {
+      this.setData({ bindDayDecrShow: false })
+    }else{
+      this.setData({ bindDayDecrShow: true })
+    }
   },
 
   /**
@@ -159,6 +173,20 @@ Page({
         wx.hideLoading();
       }
     })
+
+
+    //如果当前时间前一天小于今天，则置灰
+    var todayTemp = new Date();
+    var yearTemp = todayTemp.getFullYear();       //年
+    var monthTemp = todayTemp.getMonth() + 1;     //月
+    var dayTemp = todayTemp.getDate();            //日
+    if (monthTemp < 10) { monthTemp = "0" + monthTemp; }
+    if (dayTemp < 10) { dayTemp = "0" + dayTemp; }
+    var todayStr = yearTemp + '-' + monthTemp + '-' + dayTemp;
+
+    if (this.data.leaveDate == todayStr) {
+      this.setData({ bindDayDecrShow: false })
+    }
     
   },
   bindDayIncr: function () {
@@ -166,6 +194,8 @@ Page({
           scrollTop: 0,
           duration: 0
       })
+
+    this.setData({ bindDayDecrShow: true })
 
     var day = new Date(this.data.leaveDate)
     day.setTime(day.getTime() + 24 * 60 * 60 * 1000);

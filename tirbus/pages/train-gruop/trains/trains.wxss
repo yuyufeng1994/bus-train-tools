@@ -80,6 +80,9 @@
   background-color: #39f;
   border-radius: 10rpx;
 }
+.title-date-unshow{
+  color: #CCCCCC;
+}
 
 .title-date-center {
   width: 320rpx;

@@ -15,11 +15,11 @@
     <view class='button-list-item-right'>></view>
   </view>
   <view class='button-list-item'>
-    <view class='button-list-item-left' bindtap='bindSettings'>功能设置</view>
+    <view class='button-list-item-left'>客服会话</view>
     <view class='button-list-item-right'>></view>
   </view>
-  <view class='button-list-item'>
-    <view class='button-list-item-left'>客服会话</view>
+   <view class='button-list-item'>
+    <view class='button-list-item-left' bindtap='bindSettings'>功能设置</view>
     <view class='button-list-item-right'>></view>
   </view>
   <view class='button-list-item'>

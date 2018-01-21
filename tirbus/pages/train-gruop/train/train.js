@@ -4,13 +4,86 @@ Page({
   data: {
     begin: null,
     end: null,
-    date: null
+    date: null,
+    trainSearchHistory:null
   },
 
   formSubmit: function (e) {
+    //历史纪录缓存
+    var trainSearchHistory;
+     wx.getStorage({
+      key: 'trainSearchHistory',
+      success: function(res) {
+        trainSearchHistory = res.data;
+        var isHas = false;
+        for (var i = 0; i < trainSearchHistory.length;i++){
+          if (trainSearchHistory[i].beginCity == e.detail.value.beginCity && trainSearchHistory[i].endCity == e.detail.value.endCity){
+            //已经存在历史记录中，则排序到第一
+            var tempSearchHistoryItem = trainSearchHistory[0];
+            trainSearchHistory[0] = { beginCity: e.detail.value.beginCity, endCity: e.detail.value.endCity };
+            trainSearchHistory[i] = tempSearchHistoryItem
+            isHas = true;
+            break;
+          }
+        }
+        if (!isHas){
+          trainSearchHistory.unshift({ beginCity: e.detail.value.beginCity, endCity: e.detail.value.endCity })
+        }
+       
+      },
+      fail:function(){
+        trainSearchHistory = [{ beginCity: e.detail.value.beginCity, endCity: e.detail.value.endCity }];
+      },
+      complete: function () {
+
+        if (trainSearchHistory.length >= 4) {
+          //异常，清空数组
+          if (trainSearchHistory.length > 4) {
+            trainSearchHistory = [];
+          }
+          trainSearchHistory.pop();
+        }
+
+        wx.setStorage({
+          key: "trainSearchHistory",
+          data: trainSearchHistory
+        })
+      }
+    })
+    
     // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     wx.navigateTo({
       url: '../trains/trains?beginCity=' + e.detail.value.beginCity + "&endCity=" + e.detail.value.endCity + "&leaveDate=" + e.detail.value.leaveDate,
+    })
+  }, historySearchBind:function(e){
+    app.globalData.trainBeginCity = e.currentTarget.dataset.item.beginCity
+    app.globalData.trainEndCity = e.currentTarget.dataset.item.endCity
+
+    wx.getStorage({
+      key: 'trainSearchHistory',
+      success: function (res) {
+        var trainSearchHistory = res.data;
+        var isHas = false;
+        for (var i = 0; i < trainSearchHistory.length; i++) {
+          if (trainSearchHistory[i].beginCity == e.currentTarget.dataset.item.beginCity && trainSearchHistory[i].endCity == e.currentTarget.dataset.item.endCity
+) {
+            //已经存在历史记录中，则排序到第一
+            var tempSearchHistoryItem = trainSearchHistory[0];
+            trainSearchHistory[0] = { beginCity: e.currentTarget.dataset.item.beginCity, endCity: trainSearchHistory[i].endCity };
+            trainSearchHistory[i] = tempSearchHistoryItem
+            isHas = true;
+            break;
+          }
+        }
+        wx.setStorage({
+          key: "trainSearchHistory",
+          data: trainSearchHistory
+        })
+      }
+    })
+
+    wx.navigateTo({
+      url: '../trains/trains?beginCity=' + e.currentTarget.dataset.item.beginCity + "&endCity=" + e.currentTarget.dataset.item.endCity + "&leaveDate=" + this.data.date,
     })
   },
   formReset: function () {
@@ -44,8 +117,18 @@ Page({
       url: '../citys/citys?cityType=end',
     })
   }, onShow: function () {
-
-    this.setData({ begin: app.globalData.trainBeginCity })
-    this.setData({ end: app.globalData.trainEndCity })
+    var that = this;
+    var trainSearchHistory;
+    wx.getStorage({
+      key: 'trainSearchHistory',
+      success: function (res) {
+        trainSearchHistory = res.data;
+        that.setData({ begin: app.globalData.trainBeginCity, end: app.globalData.trainEndCity, trainSearchHistory: trainSearchHistory})
+      },
+      fail: function () {
+        that.setData({ begin: app.globalData.trainBeginCity, end: app.globalData.trainEndCity})
+      }
+    })
+    
   }
 })

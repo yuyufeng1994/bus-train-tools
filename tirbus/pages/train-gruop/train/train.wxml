@@ -3,20 +3,20 @@
   <view class='flex-box'>
     <view class='flex-box-header'>出发城市</view>
     <view class="flex-box-content">
-      <input name='beginCity' value='{{begin}}' disabled='disabled' placeholder="" bindtap='bindBeginCityView' class='input-city'/>
+      <input name='beginCity' value='{{begin}}' disabled='disabled' placeholder="" bindtap='bindBeginCityView' class='input-city' />
     </view>
   </view>
 
   <view class="flex-box">
     <view class='flex-box-header'>目的城市</view>
     <view class="flex-box-content">
-      <input name='endCity' value='{{end}}' placeholder="" disabled='disabled' bindtap='bindEndCityView' class='input-city'/>
+      <input name='endCity' value='{{end}}' placeholder="" disabled='disabled' bindtap='bindEndCityView' class='input-city' />
     </view>
   </view>
 
   <view class="flex-box">
     <view class='flex-box-header'>出发日期</view>
-    <picker mode="date" name='leaveDate' class='flex-box-content-pricker' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange" >
+    <picker mode="date" name='leaveDate' class='flex-box-content-pricker' value="{{date}}" start="2018-01-01" end="2019-09-01" bindchange="bindDateChange">
       <view class='input-city'>{{date}}</view>
     </picker>
   </view>
@@ -24,4 +24,11 @@
   <view class="btn-area">
     <button formType="submit" class='btn-query'>查询</button>
   </view>
+
+  <view class='history-box'>
+    <view wx:for="{{trainSearchHistory}}" wx:key='unique'>
+      <view class='history-item' data-item='{{item}}' bindtap='historySearchBind'>{{item.beginCity}}-{{item.endCity}}</view>
+    </view>
+  </view>
+
 </form>

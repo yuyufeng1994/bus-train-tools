@@ -1,5 +1,6 @@
 <view class='title-content'>
-  <view class='title-date' bindtap='bindDayDecr'>前一天</view>
+  <view wx:if='{{bindDayDecrShow}}' class='title-date' bindtap='bindDayDecr'>前一天</view>
+  <view wx:else class='title-date title-date-unshow'>前一天</view>
   <view class='title-date title-date-center'>{{leaveDate}}</view>
   <view class='title-date' bindtap='bindDayIncr'>后一天</view>
 </view>

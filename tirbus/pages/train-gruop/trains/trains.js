@@ -1,6 +1,5 @@
 // pages/trains/trains.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -9,7 +8,8 @@ Page({
     endCity: null,
     leaveDate: null,
     errorMsg:'网络繁忙，请稍后再试',
-    trains: {}
+    trains: {},
+    bindDayDecrShow:true
   },
 
   /**
@@ -66,7 +66,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    //如果当前时间前一天小于今天，则置灰
+    var today = new Date();
+
+    var year = today.getFullYear();       //年
+    var month = today.getMonth() + 1;     //月
+    var day = today.getDate();            //日
+    if (month < 10) { month = "0" + month; }
+    if (day < 10) { day = "0" + day; }
+    var todayStr = year + '-' + month + '-' + day;
+
+    if (this.data.leaveDate == todayStr) {
+      this.setData({ bindDayDecrShow: false })
+    }else{
+      this.setData({ bindDayDecrShow: true })
+    }
   },
 
   /**
@@ -149,16 +163,7 @@ Page({
 
     var yesterday = new Date();
     yesterday.setTime(yesterday.getTime() - 24 * 60 * 60 * 1000);
-    if (day < yesterday) {
-      wx.showToast({
-        title: '抱歉，无法查询今天之前的车次',
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-    }
-
-
+  
     var year = day.getFullYear();       //年
     var month = day.getMonth() + 1;     //月
     var day = day.getDate();            //日
@@ -196,12 +201,28 @@ Page({
     })
 
 
+    //如果当前时间前一天小于今天，则置灰
+    var todayTemp = new Date();
+    var yearTemp = todayTemp.getFullYear();       //年
+    var monthTemp = todayTemp.getMonth() + 1;     //月
+    var dayTemp = todayTemp.getDate();            //日
+    if (monthTemp < 10) { monthTemp = "0" + monthTemp; }
+    if (dayTemp < 10) { dayTemp = "0" + dayTemp; }
+    var todayStr = yearTemp + '-' + monthTemp + '-' + dayTemp;
+
+    if (this.data.leaveDate == todayStr) {
+      this.setData({ bindDayDecrShow: false })
+    }
+
+
   },
   bindDayIncr: function () {
       wx.pageScrollTo({
           scrollTop: 0,
           duration: 0
       })
+
+    this.setData({ bindDayDecrShow: true })
 
     var that = this;
     var day = new Date(this.data.leaveDate)
