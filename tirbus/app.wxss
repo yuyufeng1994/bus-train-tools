@@ -5,12 +5,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  /* padding: 200rpx 0; */
   box-sizing: border-box;
 } 
+
 page{
   background-color: #EEEEEE;
 }
+
 .warning-top{
   padding: 10rpx;
   font-size:28rpx; 

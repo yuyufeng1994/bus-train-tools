@@ -151,7 +151,7 @@ Page({
     yesterday.setTime(yesterday.getTime() - 24 * 60 * 60 * 1000);
     if (day < yesterday) {
       wx.showToast({
-        title: '日期已过，无法查询',
+        title: '抱歉，无法查询今天之前的车次',
         icon: 'none',
         duration: 2000
       })

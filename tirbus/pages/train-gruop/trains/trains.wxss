@@ -63,7 +63,7 @@
 }
 
 .train-list-content {
-  margin-top: 80rpx;
+  margin-top: 50rpx;
   /* height: 1150rpx; */
   width: 100%;
   /* border: solid 1px red;     *//* overflow: scroll; */

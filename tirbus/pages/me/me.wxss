@@ -15,7 +15,32 @@
 .userinfo-nickname {
   color: #aaa;
 }
+.button-list{
+  margin-top: 30rpx;
+  background-color: #FFFFFF;
+}
+.button-list-item{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  border-bottom: 1rpx solid #CCCCCC;
+  background-color: #FFFFFF;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 35rpx;
+  margin-left: 5%;
+}
+.button-list-item-left{
+  width: 50%;
+  /* border: 1rpx solid red; */
+  /* margin-left: 5%; */
+}
 
-.usermotto {
-  margin-top: 200px;
+.button-list-item-right{
+   width: 50%;
+   /* border: 1rpx solid red;  */
+   text-align: right;
+   /* margin-right: 5%; */
+   color: #CCCCCC;
+   
 }

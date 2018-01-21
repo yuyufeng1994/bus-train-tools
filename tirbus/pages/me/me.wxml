@@ -7,8 +7,23 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
 </view>
 
+<view class='button-list'>
+  <view class='button-list-item'>
+    <view class='button-list-item-left'>我的车次</view>
+    <view class='button-list-item-right'>></view>
+  </view>
+  <view class='button-list-item'>
+    <view class='button-list-item-left' bindtap='bindSettings'>功能设置</view>
+    <view class='button-list-item-right'>></view>
+  </view>
+  <view class='button-list-item'>
+    <view class='button-list-item-left'>客服会话</view>
+    <view class='button-list-item-right'>></view>
+  </view>
+  <view class='button-list-item'>
+    <view class='button-list-item-left'>关于巴铁</view>
+    <view class='button-list-item-right'>></view>
+  </view>
+</view>

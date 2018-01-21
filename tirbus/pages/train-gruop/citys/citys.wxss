@@ -5,7 +5,7 @@
   right: 5rpx;
   color: #3399CC;
   font-size: 25rpx;
-  top:20%;
+  top:10%;
   /* border: 1rpx solid #3399CC; */
 }
 
