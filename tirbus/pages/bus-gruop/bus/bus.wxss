@@ -41,7 +41,7 @@
   background-color: #FFFFFF;
   border-radius: 20rpx;
   /* border: 3rpx solid #CCCCCC;  */
-  height: 530rpx;
+  /* height: 530rpx; */
 }
 
 
@@ -79,6 +79,19 @@
 .btn-query{
   background-color:#3399CC;
   color:#FFFFFF;
+}
+
+.history-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #CCCCCC;
+  font-size: 30rpx;
+}
+
+.history-item{
+  margin:0 30rpx;
+  margin-bottom: 30rpx;
 }
 
 

@@ -10,19 +10,18 @@
 </view>
 
 <view class='button-list'>
-  <view class='button-list-item'>
-    <view class='button-list-item-left'>我的车次</view>
+  <view class='button-list-item' bindtap='bindList'>
+    <image class='icon-list-item' src='../../image/icon/Category.png'></image>
+    <view class='button-list-item-left' >我的车次</view>
     <view class='button-list-item-right'>></view>
   </view>
-  <view class='button-list-item'>
-    <view class='button-list-item-left'>客服会话</view>
+   <view class='button-list-item'  bindtap='bindSettings' >
+    <image class='icon-list-item' src='../../image/icon/set.png'></image>
+    <view class='button-list-item-left'>功能设置</view>
     <view class='button-list-item-right'>></view>
   </view>
-   <view class='button-list-item'>
-    <view class='button-list-item-left' bindtap='bindSettings'>功能设置</view>
-    <view class='button-list-item-right'>></view>
-  </view>
-  <view class='button-list-item'>
+  <view class='button-list-item'  bindtap='bindAbout'>
+    <image class='icon-list-item' src='../../image/icon/information.png'></image>
     <view class='button-list-item-left'>关于巴铁</view>
     <view class='button-list-item-right'>></view>
   </view>

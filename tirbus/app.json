@@ -6,7 +6,8 @@
     "pages/train-gruop/train/train",
     "pages/train-gruop/trains/trains",
     "pages/train-gruop/citys/citys",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"light",

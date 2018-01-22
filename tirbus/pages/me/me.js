@@ -38,5 +38,19 @@ Page({
   },
   bindSettings:function(){
     wx.openSetting({})
+  }, bindAbout:function(){
+    wx.navigateTo({url:"../about/about"})
+  },
+  onPullDownRefresh:function(){
+    setTimeout(function () {
+      wx.stopPullDownRefresh();
+    }, 1000)
+  },
+  bindList:function(){
+    wx.showToast({
+      title: '尽请期待',
+      icon: 'loading',
+      duration: 2000
+    })
   }
 })
