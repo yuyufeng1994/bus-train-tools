@@ -5,27 +5,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var removeRepeatTemp = [];
+    var that = this;
 
+    
+
+
+    var removeRepeatTemp = [];
     var tempCitys = this.data.citys;
     var trainSearchHistory;
-    var that = this;
+   
     try {
       trainSearchHistory = wx.getStorageSync('trainSearchHistory')
       if (trainSearchHistory) {
         for (var i = 0; i < trainSearchHistory.length; i++) {
           var isHasC = false;
           //历史中去重塞入beginCity
-          for (var j = 0; j < removeRepeatTemp.length;j++){
-            if (removeRepeatTemp[j].cityName == trainSearchHistory[i].beginCity){
+          for (var j = 0; j < removeRepeatTemp.length; j++) {
+            if (removeRepeatTemp[j].cityName == trainSearchHistory[i].beginCity) {
               isHasC = true;
               break;
             }
           }
-          if(!isHasC){
-            removeRepeatTemp.unshift({ cityName: trainSearchHistory[i].beginCity});
+          if (!isHasC) {
+            removeRepeatTemp.unshift({ cityName: trainSearchHistory[i].beginCity });
           }
-        //历史中去重塞入endCity
+          //历史中去重塞入endCity
           isHasC = false;
           for (var j = 0; j < removeRepeatTemp.length; j++) {
             if (removeRepeatTemp[j].cityName == trainSearchHistory[i].endCity) {
@@ -34,14 +38,14 @@ Page({
             }
           }
           if (!isHasC) {
-            removeRepeatTemp.unshift({cityName:trainSearchHistory[i].endCity});
+            removeRepeatTemp.unshift({ cityName: trainSearchHistory[i].endCity });
           }
         }
 
-        for (var i = 0; i < removeRepeatTemp.length;i++){
+        for (var i = 0; i < removeRepeatTemp.length; i++) {
           tempCitys.unshift({ cityName: removeRepeatTemp[i].cityName, cityPinYin: '##', cityPY: '##' })
         }
-        
+
         //加入历史搜索
         tempCitys.unshift({ cityName: '历史', cityPinYin: '', cityPY: '' })
       }
