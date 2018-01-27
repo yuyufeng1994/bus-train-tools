@@ -1,21 +1,21 @@
 <!--pages/about/about.wxml-->
 <view class='bt-about'>
+  <view class='text-title'>功能简介</view>
+  <view class='text-content'>我是一款可以查询汽车票、火车票的小程序。在这里，您还可以添加您关注的车次，你可以设置我，在余票很少或出现余票的时候让我及时通知您。目前功能未完善，一定要关注我的成长哦。如果您对我有什么疑问，你可以在“客服消息”中向我提问，或者通过下面的信息联系我。</view>
 
   <view class='text-title'>开发者信息</view>
   <view class='text-content'>
-    “巴铁助手”小程序由yuyufeng同学个人开发，我的网站：https://www.yuyufeng.top，感谢您的使用。
+    “巴铁助手”小程序由yuyufeng同学个人开发，我的邮箱:416530244@qq.com,我的网站:https://www.yuyufeng.top。感谢您的使用。
   </view>
 
 
-  <view class='text-title'>版本信息：1.0.1</view>
+  <view class='text-title'>版本信息</view>
   <view class='text-content'>
-    2018年02月01日：加入客服消息；一些界面优化。
+    1.0.1:2018年02月01日：加入客服消息；一些界面优化。
   </view>
 
-
-  <view class='text-title'>版本信息：1.0.0</view>
   <view class='text-content'>
-    2018年01月23日：在这里您可以查询你要购买的火车票和汽车票，数据均来源于车站官网公开的信息。
+    1.0.0:2018年01月23日：在这里您可以查询你要购买的火车票和汽车票，数据均来源于车站官网公开的信息。
   </view>
 
 </view>

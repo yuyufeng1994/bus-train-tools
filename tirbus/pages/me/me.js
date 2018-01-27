@@ -54,5 +54,12 @@ Page({
       icon: 'loading',
       duration: 2000
     })
+  },
+  bindTest: function () {
+    wx.showToast({
+      title: '尽请期待',
+      icon: 'loading',
+      duration: 2000
+    })
   }
 })
