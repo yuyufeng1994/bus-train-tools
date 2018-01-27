@@ -1,0 +1,21 @@
+<!--pages/about/about.wxml-->
+<view class='bt-about'>
+
+  <view class='text-title'>开发者信息</view>
+  <view class='text-content'>
+    “巴铁助手”小程序由yuyufeng同学个人开发，我的网站：https://www.yuyufeng.top，感谢您的使用。
+  </view>
+
+
+  <view class='text-title'>版本信息：1.0.1</view>
+  <view class='text-content'>
+    2018年02月01日：加入客服消息；一些界面优化。
+  </view>
+
+
+  <view class='text-title'>版本信息：1.0.0</view>
+  <view class='text-content'>
+    2018年01月23日：在这里您可以查询你要购买的火车票和汽车票，数据均来源于车站官网公开的信息。
+  </view>
+
+</view>
