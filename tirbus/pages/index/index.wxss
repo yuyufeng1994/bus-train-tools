@@ -58,8 +58,7 @@
   color: #CCCCCC;
   height: 30rpx;
   line-height: 30rpx;
-  position: fixed;
   text-align: center;
   width: 100%;
-  top:90%;
+  margin-top: 50%;
 }

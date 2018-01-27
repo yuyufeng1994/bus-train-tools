@@ -58,7 +58,7 @@ button::after {
 }
 
 .button-list-item-left {
-  width: 10%;
+  width: 15%;
   /* border: 1rpx solid red; *//* margin-left: 5%; */
   border-radius: 0;
 }
@@ -73,7 +73,7 @@ button::after {
 
 .button-list-item-middle {
   text-align: left;
-  width: 80%;
+  width: 75%;
 }
 
 .icon-list-item {
@@ -90,7 +90,7 @@ button::after {
   align-items: center;
   background-color: #39f;
   justify-content: space-between;
-  color: #fff;
+  color: #eee;
   text-align: center;
 }
 

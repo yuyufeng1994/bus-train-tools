@@ -16,12 +16,12 @@
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
     <view class='my-info-item-up'>6</view>
-    <view class='my-info-item-down'>监听次数</view>
+    <view class='my-info-item-down'>监听总数</view>
 
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
     <view class='my-info-item-up'>5</view>
-    <view class='my-info-item-down'>预警次数</view>
+    <view class='my-info-item-down'>预警总数</view>
 
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
