@@ -9,20 +9,65 @@
   </view>
 </view>
 
+<view class='my-info'>
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>3</view>
+    <view class='my-info-item-down'>监听车次</view>
+  </view>
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>6</view>
+    <view class='my-info-item-down'>监听次数</view>
+
+  </view>
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>5</view>
+    <view class='my-info-item-down'>预警次数</view>
+
+  </view>
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>8</view>
+    <view class='my-info-item-down'>已过期</view>
+
+  </view>
+</view>
+
 <view class='button-list'>
-  <view class='button-list-item' bindtap='bindList'>
-    <image class='icon-list-item' src='../../image/icon/Category.png'></image>
-    <view class='button-list-item-left' >我的车次</view>
+  <button class='button-list-item' bindtap='bindList'>
+    <view class='button-list-item-left'>
+      <image class='icon-list-item' src='../../image/icon/Category.png'></image>
+    </view>
+    <view class='button-list-item-middle'>我的车次</view>
     <view class='button-list-item-right'>></view>
-  </view>
-   <view class='button-list-item'  bindtap='bindSettings' >
-    <image class='icon-list-item' src='../../image/icon/set.png'></image>
-    <view class='button-list-item-left'>功能设置</view>
+  </button>
+
+  <view class='view-hr' />
+
+  <button class='button-list-item' bindtap='bindAbout'>
+    <view class='button-list-item-left'>
+      <image class='icon-list-item' src='../../image/icon/information.png'></image>
+    </view>
+    <view class='button-list-item-middle'>关于巴铁</view>
     <view class='button-list-item-right'>></view>
-  </view>
-  <view class='button-list-item'  bindtap='bindAbout'>
-    <image class='icon-list-item' src='../../image/icon/information.png'></image>
-    <view class='button-list-item-left'>关于巴铁</view>
+  </button>
+
+  <view class='view-hr' />
+
+  <button class='button-list-item' open-type="contact" session-from="weapp">
+    <view class='button-list-item-left'>
+      <image class='icon-list-item' src='../../image/icon/service.png'></image>
+    </view>
+    <view class='button-list-item-middle'>客服消息</view>
     <view class='button-list-item-right'>></view>
-  </view>
+  </button>
+
+  <view class='view-hr' />
+
+  <button class='button-list-item' bindtap='bindSettings'>
+    <view class='button-list-item-left'>
+      <image class='icon-list-item' src='../../image/icon/set.png'></image>
+    </view>
+    <view class='button-list-item-middle'>功能设置</view>
+    <view class='button-list-item-right'>></view>
+  </button>
+
 </view>

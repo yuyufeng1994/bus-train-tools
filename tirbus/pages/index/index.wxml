@@ -18,3 +18,4 @@
     <view><image class='view-modal-item-pic' src='../../image/pic/bus.png'></image></view>
   </view>
 </view>
+<view class='bottom-title'>巴铁在手，购票无忧</view>

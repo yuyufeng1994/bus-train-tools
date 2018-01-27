@@ -1,15 +1,16 @@
 /* pages/me/me.wxss */
+
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #3399FF;
+  background-color: #39f;
   justify-content: space-between;
   /* padding: 200rpx 0; */
-  
   box-sizing: border-box;
-} 
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -24,44 +25,90 @@
 }
 
 .userinfo-nickname {
-  color: #FFFFFF;
+  color: #fff;
   padding-bottom: 20rpx;
 }
-.button-list{
+
+.button-list {
   /* margin-top: 30rpx; */
-  background-color: #FFFFFF;
+  background-color: #fff;
 }
-.button-list-item{
+
+button::after {
+  border: none;
+}
+
+.button-list-item {
   display: flex;
   flex-direction: row;
   width: 90%;
-  border-bottom: 1rpx solid #CCCCCC;
-  background-color: #FFFFFF;
+  margin-left: 5%;
+  /* border-bottom: 1rpx solid #ccc;   */
+  background-color: #fff;
   height: 100rpx;
   line-height: 100rpx;
-  font-size: 35rpx;
+  font-size: 30rpx;
+  color: #222;
+}
+
+.view-hr {
+  width: 90%;
   margin-left: 5%;
-}
-.button-list-item-left{
-  width: 50%;
-  /* border: 1rpx solid red; */
-  /* margin-left: 5%; */
+  border-bottom: 1rpx solid #eee;
 }
 
-.button-list-item-right{
-   width: 50%;
-   /* border: 1rpx solid red;  */
-   text-align: right;
-   /* margin-right: 5%; */
-   color: #CCCCCC;
-   
+.button-list-item-left {
+  width: 10%;
+  /* border: 1rpx solid red; *//* margin-left: 5%; */
+  border-radius: 0;
 }
 
-.icon-list-item{
-   margin-top: 30rpx; 
+.button-list-item-right {
+  width: 10%;
+  /* border: 1rpx solid red;  */
+  text-align: right;
+  /* margin-right: 5%; */
+  color: #ccc;
+}
+
+.button-list-item-middle {
+  text-align: left;
+  width: 80%;
+}
+
+.icon-list-item {
+  margin-top: 30rpx;
   margin-right: 30rpx;
-
   width: 40rpx;
   height: 40rpx;
   /* border: 1rpx solid red;   */
+}
+
+.my-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #39f;
+  justify-content: space-between;
+  color: #fff;
+  text-align: center;
+}
+
+.my-info-item {
+   width: 30%; 
+   margin-top: 10rpx;
+   margin-bottom: 10rpx;
+  /* border: 1rpx solid red;    */
+}
+
+.my-info-item-up {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 35rpx;
+}
+
+.my-info-item-down {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 25rpx;
 }

@@ -23,28 +23,7 @@ Page({
    */
   onLoad: function (options) {
     // console.log(":::"+app.globalData.locationCity)
-    if ('未知' == app.globalData.locationCity){
-      // wx.authorize({scope:'scope.userLocation'})
-      wx.getLocation({
-        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-        success: function (res) {
-          var latitude = res.latitude
-          var longitude = res.longitude
-          wx.request({
-            url: 'https://www.yuyufeng.top/mp/query-city-name?location=' + latitude + ',' + longitude,
-            data: {},
-            header: {
-              'Content-Type': 'application/json'
-            },
-            success: function (res) {
-              var city = res.data.data;
-              city = city.replace("市","")
-              app.globalData.locationCity = city;
-            }
-          })
-        }
-      })
-    }
+    
   },
 
   /**

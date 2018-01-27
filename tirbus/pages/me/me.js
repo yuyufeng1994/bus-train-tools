@@ -16,7 +16,7 @@ Page({
   },
   onLoad: function () {
     var that = this;
-   
+
     wx.getUserInfo({
       success: function (res) {
         app.globalData.userInfo = res.userInfo;
@@ -26,7 +26,7 @@ Page({
         })
       }
     })
-    
+
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -36,17 +36,19 @@ Page({
       hasUserInfo: true
     })
   },
-  bindSettings:function(){
+  bindSettings: function () {
     wx.openSetting({})
-  }, bindAbout:function(){
-    wx.navigateTo({url:"../about/about"})
+  }, bindAbout: function () {
+    wx.navigateTo({ url: "../about/about" })
+  }, bindService: function () {
+    wx.cont
   },
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function () {
     setTimeout(function () {
       wx.stopPullDownRefresh();
     }, 1000)
   },
-  bindList:function(){
+  bindList: function () {
     wx.showToast({
       title: '尽请期待',
       icon: 'loading',

@@ -1,14 +1,13 @@
 //app.js
 App({
-  globalData:{
-    trainBeginCity:'杭州',
-    trainEndCity:'北京',
-    locationCity:'未知'
+  globalData: {
+    trainBeginCity: '杭州',
+    trainEndCity: '北京',
+    locationCity: '上海',
+    serverKey: '423ab978069235a7a2a8fd7a55e62d40'
   },
   onLaunch: function () {
-    // 展示本地存储能力
-  
-
+    var that = this
     // 登录
     wx.login({
       success: res => {
@@ -33,6 +32,29 @@ App({
             }
           })
         }
+      }
+    })
+
+
+    //获取当前城市
+    // wx.authorize({scope:'scope.userLocation'})
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        wx.request({
+          url: 'https://www.yuyufeng.top/mp/query-city-name?location=' + latitude + ',' + longitude + '&key=' + that.globalData.serverKey,
+          data: {},
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            var city = res.data.data;
+            city = city.replace("市", "")
+            that.globalData.locationCity = city;
+          }
+        })
       }
     })
   }
