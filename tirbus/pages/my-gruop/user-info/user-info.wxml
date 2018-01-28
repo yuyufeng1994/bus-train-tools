@@ -1,0 +1,15 @@
+<form class='my-form' bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section-title">头像</view>
+    <image class="userinfo-avatar" src="{{userInfo.userFigure}}" background-size="cover"></image>
+  </view>
+<view class='view-hr' />
+  <view class="section">
+    <view class="section-title">用户名</view>
+    <input name="input" class='my-input' placeholder="please input here" value='{{userInfo.userName}}' />
+  </view>
+<view class='view-hr' />
+  <view class="btn-area">
+    <button formType="submit">修改</button>
+  </view>
+</form>

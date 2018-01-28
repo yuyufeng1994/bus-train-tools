@@ -1,0 +1,35 @@
+/* pages/my-gruop/user-info/user-info.wxss */
+.section{
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  height: 128rpx;
+  line-height: 128rpx;
+}
+
+.my-form{
+  width: 80%;
+}
+.userinfo-avatar {
+  justify-content:center;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+.section-title{
+  width: 20%;
+  margin-left: 10%;
+  font-size: 30rpx;
+  /* color: #999999; */
+}
+.my-input{
+  justify-content:center;
+   height: 128rpx;
+   line-height: 128rpx;
+}
+
+.view-hr {
+  width: 90%;
+  margin-left: 5%;
+  border-bottom: 1rpx solid #eee;
+}
