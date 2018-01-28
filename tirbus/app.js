@@ -8,9 +8,57 @@ App({
     userInfo: null
   },
   onLaunch: function () {
+    //检查是否已经有登录信息
+    this.doCheckLogin();
+  },
+  doLogin: function () {
+    console.log("开始登录")
+    var that = this;
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: 'https://www.yuyufeng.top/mp/do-login',
+          data: { code: res.code, key: that.globalData.serverKey },
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: res => {
+            console.log(res)
+            wx.setStorage({
+              key: "3rd_session",
+              data: res.data.message
+            })
+
+            if (res.data.success == true) {
+              wx.showToast({
+                title: '登录成功',
+                icon: 'success',
+                duration: 1000
+              })
+              that.globalData.userInfo = res.data.data
+            } else {
+              wx.showToast({
+                title: res.data.message,
+                icon: 'none',
+                duration: 1000
+              })
+            }
+          }, fail: res => {
+            wx.showToast({
+              title: '登录失败，服务器异常',
+              icon: 'success',
+              duration: 1000
+            })
+          }
+        })
+      }
+    })
+  },
+  doCheckLogin: function () {
+    console.log("检查是否有登录信息")
     var that = this
     // 登录
-
     wx.checkSession({
       success: function () {
         //session 未过期，并且在本生命周期一直有效
@@ -19,13 +67,12 @@ App({
           key: '3rd_session',
           success: function (res) {
             wx.request({
-              url: 'http://test.yuyufeng.top/mp/check-login',
-              data: { session3Rd: res.data },
+              url: 'https://www.yuyufeng.top/mp/check-login',
+              data: { session3Rd: res.data, key: that.globalData.serverKey },
               header: {
                 'Content-Type': 'application/json'
               },
-              success: function (res) {
-                console.log(res)
+              success: res => {
                 if (res.data.success == true) {
                   wx.showToast({
                     title: '登录成功',
@@ -34,121 +81,31 @@ App({
                   })
                   that.globalData.userInfo = res.data.data
                 } else {
-                  wx.showToast({
-                    title: res.data.message,
-                    icon: 'none',
-                    duration: 1000
-                  })
+                  //服务器中没有登录信息，则重新登录
+                  that.doLogin()
                 }
-
+              },
+              fail: res => {
+                wx.showToast({
+                  title: '登录失败，服务器异常',
+                  icon: 'success',
+                  duration: 1000
+                })
               }
+
             })
           },
           fail: function () {
             //本地找不到，则重新登录
-            wx.login({
-              success: res => {
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                wx.request({
-                  url: 'http://test.yuyufeng.top/mp/do-login',
-                  data: { code: res.code },
-                  header: {
-                    'Content-Type': 'application/json'
-                  },
-                  success: function (res) {
-                    wx.setStorage({
-                      key: "3rd_session",
-                      data: res.data.message
-                    })
-                    if (res.data.success == true) {
-                      wx.showToast({
-                        title: '登录成功',
-                        icon: 'success',
-                        duration: 1000
-                      })
-                      that.globalData.userInfo = res.data.data
-                    } else {
-                      wx.showToast({
-                        title: res.data.message,
-                        icon: 'none',
-                        duration: 1000
-                      })
-                    }
-
-                  }
-                })
-              }
-            })
+            that.doLogin();
           }
         })
       },
       fail: function () {
-        wx.login({
-          success: res => {
-            // 发送 res.code 到后台换取 openId, sessionKey, unionId
-            wx.request({
-              url: 'http://test.yuyufeng.top/mp/do-login',
-              data: { code: res.code },
-              header: {
-                'Content-Type': 'application/json'
-              },
-              success: function (res) {
-                wx.setStorage({
-                  key: "3rd_session",
-                  data: res.data.message
-                })
-
-                if (res.data.success == true) {
-                  wx.showToast({
-                    title: '登录成功',
-                    icon: 'success',
-                    duration: 1000
-                  })
-                  that.globalData.userInfo = res.data.data
-                } else {
-                  wx.showToast({
-                    title: res.data.message,
-                    icon: 'none',
-                    duration: 1000
-                  })
-                }
-
-              }
-
-            })
-
-          }
-        })
+        //session已经过期，重新登录
+        console.log("session已经过期，重新登录")
+        that.doLogin();
       }
     })
-
-
-
-
-
-
-    // 获取用户信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           // 可以将 res 发送给后台解码出 unionId
-    //           this.globalData.userInfo = res.userInfo
-
-    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //           // 所以此处加入 callback 以防止这种情况
-    //           if (this.userInfoReadyCallback) {
-    //             this.userInfoReadyCallback(res)
-    //           }
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
-
-
-
   }
 })

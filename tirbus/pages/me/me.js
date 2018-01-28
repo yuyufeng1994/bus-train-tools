@@ -14,17 +14,19 @@ Page({
     })
   },
   onLoad: function () {
+   
     var that = this;
+
     if (this.data.userInfo == null) {
       this.setData({ userInfo: app.globalData.userInfo })
     }
-
 
     //如果用户头像或用户名称为空，则使用微信的
     if (app.globalData.userInfo.userName == null || app.globalData.userInfo.userFigure == null) {
       console.log("自动设置微信信息为账号信息")
       wx.getUserInfo({
         success: function (res) {
+          //获取微信信息成功
           console.log(res.userInfo)
           var updateUserInfo = {}
           if (app.globalData.userInfo.userName == null) {
@@ -43,7 +45,7 @@ Page({
               updateUserInfo.session3Rd = res.data
               updateUserInfo.key = app.globalData.serverKey
               wx.request({
-                url: 'http://test.yuyufeng.top/mp/update-user',
+                url: 'https://www.yuyufeng.top/mp/update-user',
                 data: updateUserInfo,
                 header: {
                   'Content-Type': 'application/json'
@@ -51,8 +53,7 @@ Page({
                 success: function (res) {
                   if (res.data.success == true) {
                     app.globalData.userInfo = res.data.data
-                    that.data.userInfo = app.globalData.userInfo
-                    console.log(that.data.userInfo)
+                    that.setData({userInfo:app.globalData.userInfo})
                   } else {
                     wx.showToast({
                       title: res.data.message,
@@ -60,9 +61,12 @@ Page({
                       duration: 1000
                     })
                   }
-
                 }
               })
+            }, fail:function() {
+              //拿不到登录信息，则重新登录
+              console.log("拿不到登录信息，则重新登录")
+              app.doLogin();
             }
           })
 
@@ -70,12 +74,6 @@ Page({
       })
 
     }
-
-
-
-
-
-
   },
   bindSettings: function () {
     wx.openSetting({})
@@ -90,25 +88,6 @@ Page({
     }, 1000)
   },
   bindList: function () {
-    //震动
-    // wx.vibrateLong({
-    //   success:function(){
-    //     console.log('vibrateLong.success')
-    //   },
-    //   fail:function(){
-    //     console.log('vibrateLong.fail')
-    //   }
-    // })
-
-    // wx.vibrateShort({
-    //   success: function () {
-    //     console.log('vibrateShort.success')
-    //   },
-    //   fail: function () {
-    //     console.log('vibrateShort.fail')
-    //   }
-    // })
-
     wx.showToast({
       title: '尽请期待',
       icon: 'loading',
@@ -122,7 +101,7 @@ Page({
       duration: 2000
     })
   },
-  onShow:function(){
-    console.log(this.data.userInfo)
+  onShow: function () {
+
   }
 })

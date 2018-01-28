@@ -1,7 +1,11 @@
 <!--pages/me/me.wxml-->
 <view class="container">
   <view class="userinfo">
-    <block>
+     <block wx:if="{{userInfo.userName == null}}">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.userFigure}}" background-size="cover"></image>
+      <text class="userinfo-nickname">未设置</text>
+    </block>
+    <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.userFigure}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.userName}}</text>
     </block>
@@ -11,16 +15,16 @@
 <view class='my-info'>
   <view class='my-info-item' bindtap='bindTest'>
     <view class='my-info-item-up'>3</view>
-    <view class='my-info-item-down'>监听车次</view>
+    <view class='my-info-item-down'>当前车次</view>
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
     <view class='my-info-item-up'>6</view>
-    <view class='my-info-item-down'>监听总数</view>
+    <view class='my-info-item-down'>监听次数</view>
 
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
     <view class='my-info-item-up'>5</view>
-    <view class='my-info-item-down'>预警总数</view>
+    <view class='my-info-item-down'>预警次数</view>
 
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
