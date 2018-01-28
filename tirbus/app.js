@@ -24,7 +24,7 @@ App({
             'Content-Type': 'application/json'
           },
           success: res => {
-            console.log(res)
+            // console.log(res)
             wx.setStorage({
               key: "3rd_session",
               data: res.data.message
@@ -56,7 +56,7 @@ App({
     })
   },
   doCheckLogin: function () {
-    console.log("检查是否有登录信息")
+    // console.log("检查是否有登录信息")
     var that = this
     // 登录
     wx.checkSession({
@@ -80,6 +80,7 @@ App({
                     duration: 1000
                   })
                   that.globalData.userInfo = res.data.data
+                  console.log("用户信息已设置")
                 } else {
                   //服务器中没有登录信息，则重新登录
                   that.doLogin()
@@ -103,7 +104,7 @@ App({
       },
       fail: function () {
         //session已经过期，重新登录
-        console.log("session已经过期，重新登录")
+        // console.log("session已经过期，重新登录")
         that.doLogin();
       }
     })

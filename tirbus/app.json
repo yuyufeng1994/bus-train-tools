@@ -1,18 +1,19 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/bus-gruop/bus/bus",
     "pages/bus-gruop/buses/buses",
     "pages/train-gruop/train/train",
     "pages/train-gruop/trains/trains",
     "pages/train-gruop/citys/citys",
-    "pages/me/me",
-    "pages/about/about"
+    "pages/my-gruop/my/my",
+    "pages/my-gruop/user-info/user-info",
+    "pages/my-gruop/about/about"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3399FF",
-    "navigationBarTextStyle":"#FFFFFF",
+    "navigationBarTextStyle": "#FFFFFF",
     "enablePullDownRefresh": true,
     "navigationBarTitleText": "巴铁助手"
   },
@@ -29,12 +30,12 @@
         "iconPath": "image/bar/wxb.png",
         "selectedIconPath": "image/bar/wxb-active.png",
         "text": "首页"
-      },{
-          "pagePath": "pages/me/me",
-          "iconPath": "image/bar/account.png",
-          "selectedIconPath": "image/bar/account-active.png",
-          "text": "我的"
-        
+      },
+      {
+        "pagePath": "pages/my-gruop/my/my",
+        "iconPath": "image/bar/account.png",
+        "selectedIconPath": "image/bar/account-active.png",
+        "text": "我的"
       }
     ]
   }
