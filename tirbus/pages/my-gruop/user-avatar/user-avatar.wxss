@@ -1,0 +1,7 @@
+/* pages/my-gruop/user-avatar/user-avatar.wxss */
+.my-image{
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+

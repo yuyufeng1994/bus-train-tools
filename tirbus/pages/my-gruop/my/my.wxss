@@ -24,10 +24,7 @@
   border-radius: 50%;
 }
 
-.userinfo-nickname {
-  color: #fff;
-  padding-bottom: 20rpx;
-}
+
 
 .button-list {
   /* margin-top: 30rpx; */
@@ -41,8 +38,7 @@ button::after {
 .button-list-item {
   display: flex;
   flex-direction: row;
-  width: 90%;
-  margin-left: 5%;
+  width: 100%;
   /* border-bottom: 1rpx solid #ccc;   */
   background-color: #fff;
   height: 100rpx;
@@ -111,4 +107,22 @@ button::after {
   height: 50rpx;
   line-height: 50rpx;
   font-size: 25rpx;
+}
+.user-name{
+  display: flex;
+  flex-direction: row;
+}
+
+.userinfo-nickname {
+  color: #fff;
+  padding-bottom: 20rpx;
+  padding-left: 45rpx;
+}
+
+.edit-pic{
+  /* margin-top: 5rpx; */
+  width: 25rpx;
+  height: 25rpx;
+  padding: 20rpx;
+  padding-top: 10rpx;
 }

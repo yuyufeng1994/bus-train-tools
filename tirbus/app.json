@@ -8,6 +8,7 @@
     "pages/train-gruop/citys/citys",
     "pages/my-gruop/my/my",
     "pages/my-gruop/user-info/user-info",
+    "pages/my-gruop/user-avatar/user-avatar",
     "pages/my-gruop/about/about"
   ],
   "window": {

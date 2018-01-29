@@ -1,4 +1,5 @@
 // pages/buses/buses.js
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -39,7 +40,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://www.yuyufeng.top/service/bus/query-bus-list',
+      url: app.globalData.server +'/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -157,7 +158,7 @@ Page({
       title: '车次查询中',
     })
     wx.request({
-      url: 'https://www.yuyufeng.top/service/bus/query-bus-list',
+      url: app.globalData.server +'/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -213,7 +214,7 @@ Page({
       title: '车次查询中',
     })
     wx.request({
-      url: 'https://www.yuyufeng.top/service/bus/query-bus-list',
+      url: app.globalData.server +'/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -238,7 +239,7 @@ Page({
       title: '车次查询中',
     })
     wx.request({
-      url: 'https://www.yuyufeng.top/service/bus/query-bus-list',
+      url: app.globalData.server +'/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,

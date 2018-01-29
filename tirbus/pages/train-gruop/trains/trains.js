@@ -1,4 +1,5 @@
 // pages/trains/trains.js
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -31,7 +32,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://www.yuyufeng.top/service/train/query-train-list',
+      url: app.globalData.server +'/service/train/query-train-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -115,7 +116,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://www.yuyufeng.top/service/train/query-train-list',
+      url: app.globalData.server +'/service/train/query-train-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -178,7 +179,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://www.yuyufeng.top/service/train/query-train-list',
+      url: app.globalData.server +'/service/train/query-train-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -240,7 +241,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://www.yuyufeng.top/service/train/query-train-list',
+      url: app.globalData.server +'/service/train/query-train-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,

@@ -105,7 +105,7 @@ Page({
           var latitude = res.latitude
           var longitude = res.longitude
           wx.request({
-            url: 'https://www.yuyufeng.top/mp/query-city-name?location=' + latitude + ',' + longitude + '&key=' + app.globalData.serverKey,
+            url: app.globalData.server +'/mp/query-city-name?location=' + latitude + ',' + longitude + '&key=' + app.globalData.serverKey,
             data: {},
             header: {
               'Content-Type': 'application/json'

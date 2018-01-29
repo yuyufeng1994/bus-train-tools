@@ -1,6 +1,8 @@
 //app.js
 App({
   globalData: {
+    // server:'https://www.yuyufeng.top',
+    server: 'http://test.yuyufeng.top',
     trainBeginCity: '杭州',
     trainEndCity: '北京',
     locationCity: '未知',
@@ -18,7 +20,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: 'https://www.yuyufeng.top/mp/do-login',
+          url: that.globalData.server+'/mp/do-login',
           data: { code: res.code, key: that.globalData.serverKey },
           header: {
             'Content-Type': 'application/json'
@@ -67,7 +69,7 @@ App({
           key: '3rd_session',
           success: function (res) {
             wx.request({
-              url: 'https://www.yuyufeng.top/mp/check-login',
+              url: that.globalData.server+'/mp/check-login',
               data: { session3Rd: res.data, key: that.globalData.serverKey },
               header: {
                 'Content-Type': 'application/json'
@@ -80,7 +82,7 @@ App({
                     duration: 1000
                   })
                   that.globalData.userInfo = res.data.data
-                  console.log("用户信息已设置")
+                  // console.log("用户信息已设置")
                 } else {
                   //服务器中没有登录信息，则重新登录
                   that.doLogin()

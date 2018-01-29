@@ -1,0 +1,5 @@
+<!--pages/my-gruop/user-avatar/user-avatar.wxml-->
+
+<image class='my-image' src="{{userInfo.userFigure}}" background-size="cover" mode='aspectFit' ></image>
+
+<button bindtap='doSaveImage'>保存图片</button>

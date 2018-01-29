@@ -1,31 +1,29 @@
 /* pages/my-gruop/user-info/user-info.wxss */
-.section{
-  display: flex;
-  flex-direction: row;
-  background-color: #ffffff;
-  height: 128rpx;
-  line-height: 128rpx;
+
+.section {
+  margin-top: 20rpx;
+  /* margin-bottom: 100rpx; */
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ccc;
 }
 
-.my-form{
+.my-form {
   width: 80%;
 }
-.userinfo-avatar {
-  justify-content:center;
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 50%;
+
+.my-input {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 50rpx;
+  justify-content: center;
+  width: 95%;
+  padding-left: 5%;
+  background-color: #fff;
 }
-.section-title{
-  width: 20%;
-  margin-left: 10%;
-  font-size: 30rpx;
-  /* color: #999999; */
-}
-.my-input{
-  justify-content:center;
-   height: 128rpx;
-   line-height: 128rpx;
+
+.btn-area {
+  margin-top: 20rpx;
 }
 
 .view-hr {
