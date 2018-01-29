@@ -15,7 +15,7 @@
 .my-input {
   height: 80rpx;
   line-height: 80rpx;
-  font-size: 50rpx;
+  /* font-size: 50rpx; */
   justify-content: center;
   width: 95%;
   padding-left: 5%;
