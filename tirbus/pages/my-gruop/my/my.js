@@ -43,13 +43,13 @@ Page({
       wx.showToast({
         title: '用户登陆中，请稍后..',
         icon: 'none',
-        duration: 1000,
-        success: function () {
-          wx.navigateTo({
-            url: "../../index/index"
-          })
-        }
+        duration: 2000
       })
+      setTimeout(function(){
+        wx.switchTab({
+          url: "../../index/index"
+        })
+      },2000)
     }
   },
   getUserInfo: function () {
@@ -134,7 +134,7 @@ Page({
   editAvatar: function () {
     var that = this;
     wx.showActionSheet({
-      itemList: ['查看头像', '编辑头像'],
+      itemList: ['查看头像', '修改头像'],
       success: function (res) {
         if ("0" == res.tapIndex) {
           wx.navigateTo({ url: "../user-avatar/user-avatar" })

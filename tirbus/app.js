@@ -1,8 +1,8 @@
 //app.js
 App({
   globalData: {
-    server:'https://www.yuyufeng.top',
-    // server: 'http://test.yuyufeng.top',
+    // server:'https://www.yuyufeng.top',
+    server: 'http://test.yuyufeng.top',
     trainBeginCity: '杭州',
     trainEndCity: '北京',
     locationCity: '未知',
