@@ -8,7 +8,7 @@
 <scroll-view scroll-y="true" class='train-list-content'>
   <view wx:if="{{trains == null || trains.length<= 0}}" style="color:#CCCCCC;text-align:center;margin:20rpx;">{{errorMsg}}</view>
   <view wx:for="{{trains}}" wx:key="unique">
-    <view class='train-view' hover-class='train-view-hover' bindtap='trainTouched'>
+    <view class='train-view' hover-class='train-view-hover' bindtap='trainTouched' data-item='{{item}}' >
 
       <!-- 车票区域 -->
       <view class='train-view-up'>

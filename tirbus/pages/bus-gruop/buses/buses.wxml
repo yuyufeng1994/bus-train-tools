@@ -8,7 +8,7 @@
 <scroll-view scroll-y="true" class='bus-list-content'>
   <view wx:if="{{buses == null || buses.length <= 0}}" style="color:#CCCCCC;text-align:center;margin:20rpx;" >{{errorMsg}}</view>
   <view wx:for="{{buses}}" wx:key="unique">
-    <view class='bus-view' hover-class='bus-view-hover' bindtap='busTouched'>
+    <view class='bus-view' hover-class='bus-view-hover' bindtap='busTouched' data-item='{{item}}'>
       <view class='bus-view-left'>{{item.busTime}}</view>
       <view class='bus-view-right'>
         <view class='bus-view-right-item'>{{item.departureStation}}</view>

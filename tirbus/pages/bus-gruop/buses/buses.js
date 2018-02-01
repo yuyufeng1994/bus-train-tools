@@ -8,19 +8,62 @@ Page({
     beginCity: null,
     endCity: null,
     leaveDate: null,
-    buses:{},
-    nobusFlag:false,
-    errorMsg:'网络繁忙，请稍后再试',
-    bindDayDecrShow:true,
+    buses: {},
+    nobusFlag: false,
+    errorMsg: '网络繁忙，请稍后再试',
+    bindDayDecrShow: true,
   },
-  busTouched:function(e){
-    console.log(e)
-    wx.showToast({
-      title: '尽请期待',
-      icon: 'loading',
-      duration: 2000
+  busTouched: function (e) {
+    wx.showModal({
+      title: '提示',
+      content: '是否对该车次预警',
+      success: function (res) {
+        if (res.confirm) {
+          var busDetail = e.currentTarget.dataset.item
+          var formData = {};
+          wx.getStorage({
+            key: '3rd_session',
+            success: function (res) {
+              formData.session3Rd = res.data
+              formData.key = app.globalData.serverKey
+              formData.data = busDetail
+              wx.request({
+                url: app.globalData.server + '/mp/do-bus-listening',
+                data: formData,
+                header: {
+                  'Content-Type': 'application/json'
+                },
+                success: function (res) {
+                  console.log(res)
+                  var iconStr = "none"
+                  if (res.data.success == true) {
+                    iconStr = "success"
+                  }
+                  wx.showToast({
+                    title: res.data.message,
+                    icon: iconStr,
+                    duration: 2000
+                  })
+                }
+              })
+            }, fail: function () {
+              //拿不到登录信息，则重新登录
+              // console.log("拿不到登录信息，则重新登录")
+              wx.showToast({
+                title: '获取用户信息失败，请重新登录',
+                icon: 'none',
+                duration: 1000
+              })
+              app.doLogin();
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
-   },
+
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -40,7 +83,7 @@ Page({
     })
 
     wx.request({
-      url: app.globalData.server +'/service/bus/query-bus-list',
+      url: app.globalData.server + '/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -48,12 +91,12 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        if (res.data.success == true){
+        if (res.data.success == true) {
           var buses = res.data.data;
           that.setData({
             buses: buses
           })
-        }else{
+        } else {
           that.setData({
             buses: null
           })
@@ -68,7 +111,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -86,7 +129,7 @@ Page({
 
     if (this.data.leaveDate == todayStr) {
       this.setData({ bindDayDecrShow: false })
-    }else{
+    } else {
       this.setData({ bindDayDecrShow: true })
     }
   },
@@ -126,17 +169,17 @@ Page({
 
   },
   bindDayDecr: function () {
-      wx.pageScrollTo({
-          scrollTop: 0,
-          duration: 0
-      })
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 0
+    })
 
     var day = new Date(this.data.leaveDate)
     day.setTime(day.getTime() - 24 * 60 * 60 * 1000);
 
     var yesterday = new Date();
     yesterday.setTime(yesterday.getTime() - 24 * 60 * 60 * 1000);
-    if (day < yesterday){
+    if (day < yesterday) {
       wx.showToast({
         title: '抱歉，无法查询今天之前的车次',
         icon: 'none',
@@ -158,7 +201,7 @@ Page({
       title: '车次查询中',
     })
     wx.request({
-      url: app.globalData.server +'/service/bus/query-bus-list',
+      url: app.globalData.server + '/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -188,13 +231,13 @@ Page({
     if (this.data.leaveDate == todayStr) {
       this.setData({ bindDayDecrShow: false })
     }
-    
+
   },
   bindDayIncr: function () {
-      wx.pageScrollTo({
-          scrollTop: 0,
-          duration: 0
-      })
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 0
+    })
 
     this.setData({ bindDayDecrShow: true })
 
@@ -214,7 +257,7 @@ Page({
       title: '车次查询中',
     })
     wx.request({
-      url: app.globalData.server +'/service/bus/query-bus-list',
+      url: app.globalData.server + '/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -231,7 +274,7 @@ Page({
       }
     })
 
-    
+
   },
   onPullDownRefresh: function () {
     var that = this;
@@ -239,7 +282,7 @@ Page({
       title: '车次查询中',
     })
     wx.request({
-      url: app.globalData.server +'/service/bus/query-bus-list',
+      url: app.globalData.server + '/service/bus/query-bus-list',
       data: {
         departure: this.data.beginCity,
         destination: this.data.endCity,
@@ -255,7 +298,7 @@ Page({
         wx.hideLoading();
       }
     })
-    
+
   }
 
 })
