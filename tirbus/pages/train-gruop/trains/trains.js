@@ -104,7 +104,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           var trainDetail = e.currentTarget.dataset.item
-          console.log(trainDetail)
+          // console.log(trainDetail)
           var formData = {};
           wx.getStorage({
             key: '3rd_session',
@@ -119,7 +119,7 @@ Page({
                   'Content-Type': 'application/json'
                 },
                 success: function (res) {
-                  console.log(res)
+                  // console.log(res)
                   var iconStr = "none"
                   if (res.data.success == true) {
                     iconStr = "success"

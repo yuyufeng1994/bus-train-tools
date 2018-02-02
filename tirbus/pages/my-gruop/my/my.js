@@ -166,9 +166,8 @@ Page({
                     },
                     formData: updateUserInfo,
                     success: function (res) {
-                      console.log('上传头像成功')
+                      console.log(res)
                       var data = JSON.parse(res.data)
-                      console.log(data.data)
                       app.globalData.userInfo = data.data
                       that.setData({ userInfo: app.globalData.userInfo })
                       wx.showToast({
