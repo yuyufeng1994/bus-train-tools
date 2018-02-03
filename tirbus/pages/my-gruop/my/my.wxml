@@ -14,23 +14,22 @@
 
 <view class='my-info'>
   <view class='my-info-item' bindtap='bindTest'>
-    <view class='my-info-item-up'>3</view>
+    <view class='my-info-item-up'>0</view>
     <view class='my-info-item-down'>当前车次</view>
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
-    <view class='my-info-item-up'>6</view>
+    <view class='my-info-item-up'>0</view>
     <view class='my-info-item-down'>监听次数</view>
 
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
-    <view class='my-info-item-up'>5</view>
+    <view class='my-info-item-up'>0</view>
     <view class='my-info-item-down'>预警次数</view>
 
   </view>
   <view class='my-info-item'  bindtap='bindTest'>
-    <view class='my-info-item-up'>8</view>
+    <view class='my-info-item-up'>0</view>
     <view class='my-info-item-down'>已过期</view>
-
   </view>
 </view>
 

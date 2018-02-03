@@ -14,6 +14,7 @@ Page({
     bindDayDecrShow: true,
   },
   busTouched: function (e) {
+    var that = this
     wx.showModal({
       title: '提示',
       content: '是否对该车次预警',
@@ -26,7 +27,8 @@ Page({
             success: function (res) {
               formData.session3Rd = res.data
               formData.key = app.globalData.serverKey
-              formData.data = busDetail
+              formData.data = that.data.beginCity + '|' + that.data.endCity + '|' + that.data.leaveDate + '|' + busDetail.busTime + '|' + busDetail.busNo
+                formData.detail=busDetail
               wx.request({
                 url: app.globalData.server + '/mp/do-bus-listening',
                 data: formData,

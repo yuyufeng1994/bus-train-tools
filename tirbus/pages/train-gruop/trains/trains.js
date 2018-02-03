@@ -98,6 +98,7 @@ Page({
   
   },
   trainTouched:function(e){
+    var that = this;
     wx.showModal({
       title: '提示',
       content: '是否对该车次预警？',
@@ -106,12 +107,14 @@ Page({
           var trainDetail = e.currentTarget.dataset.item
           // console.log(trainDetail)
           var formData = {};
+  
           wx.getStorage({
             key: '3rd_session',
             success: function (res) {
               formData.session3Rd = res.data
               formData.key = app.globalData.serverKey
-              formData.data = trainDetail
+              formData.data = that.data.beginCity + '|' + that.data.endCity + '|' + that.data.leaveDate + '|' + trainDetail.beginTime + '|' + trainDetail.trainNo
+              formData.detail = trainDetail
               wx.request({
                 url: app.globalData.server + '/mp/do-train-listening',
                 data: formData,
