@@ -1,4 +1,4 @@
-<view class='warning-top'>目前支持查询功能。余票监控即将上线，尽请期待。</view>
+<view class='warning-top'>支持查询、余票监听功能。</view>
 <form bindsubmit="formSubmit" bindreset="formReset" class='form-content'>
   <view class='flex-box'>
     <view class='flex-box-header'>出发城市</view>

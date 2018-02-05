@@ -14,57 +14,12 @@ Page({
     bindDayDecrShow: true,
   },
   busTouched: function (e) {
+    console.log(e)
+    var busDetail = e.currentTarget.dataset.item
     var that = this
-    wx.showModal({
-      title: '提示',
-      content: '是否对该车次预警',
-      success: function (res) {
-        if (res.confirm) {
-          var busDetail = e.currentTarget.dataset.item
-          var formData = {};
-          wx.getStorage({
-            key: '3rd_session',
-            success: function (res) {
-              formData.session3Rd = res.data
-              formData.key = app.globalData.serverKey
-              formData.data = that.data.beginCity + '|' + that.data.endCity + '|' + that.data.leaveDate + '|' + busDetail.busTime + '|' + busDetail.busNo
-                formData.detail=busDetail
-              wx.request({
-                url: app.globalData.server + '/mp/do-bus-listening',
-                data: formData,
-                header: {
-                  'Content-Type': 'application/json'
-                },
-                success: function (res) {
-                  console.log(res)
-                  var iconStr = "none"
-                  if (res.data.success == true) {
-                    iconStr = "success"
-                  }
-                  wx.showToast({
-                    title: res.data.message,
-                    icon: iconStr,
-                    duration: 2000
-                  })
-                }
-              })
-            }, fail: function () {
-              //拿不到登录信息，则重新登录
-              // console.log("拿不到登录信息，则重新登录")
-              wx.showToast({
-                title: '获取用户信息失败，请重新登录',
-                icon: 'none',
-                duration: 1000
-              })
-              app.doLogin();
-            }
-          })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
+    wx.navigateTo({
+      url: '../bus-detail/bus-detail?beginCity=' + that.data.beginCity + '&endCity=' + that.data.endCity + '&leaveDate=' + that.data.leaveDate + '&leaveTime=' + busDetail.busTime + '&busNo=' + busDetail.busNo
     })
-
   },
 
   /**

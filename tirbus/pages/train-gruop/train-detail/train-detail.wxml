@@ -1,0 +1,41 @@
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit='true'>
+
+  <view class="section">
+    <view class="section__title">出发城市</view>
+    <input name="beginCity" value="{{beginCity}}" disabled='true' />
+  </view>
+
+  <view class="section">
+    <view class="section__title">目的城市</view>
+    <input name="endCity" value="{{endCity}}"  disabled='true'/>
+  </view>
+
+  <view class="section">
+    <view class="section__title">出发日期</view>
+    <input name="leaveDate" value="{{leaveDate}}"  disabled='true' />
+  </view>
+
+  <view class="section">
+    <view class="section__title">出发时间</view>
+    <input name="leaveTime" value="{{leaveTime}}"  disabled='true' />
+  </view>
+
+  <view class="section">
+    <view class="section__title">车次号</view>
+    <input name="trainNo" value="{{trainNo}}"  disabled='true' />
+  </view>
+  <view class="section section_gap">
+    <view class="section__title">预警方式</view>
+    <radio-group name="listenType">
+      <label>
+        <radio value='0' />有票时提醒</label>
+      <label>
+        <radio value='1' checked='true' />余票过少时提醒</label>
+    </radio-group>
+  </view>
+
+  <view class="btn-area">
+    <button formType="submit">提交</button>
+  </view>
+
+</form>

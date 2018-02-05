@@ -2,9 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/bus-gruop/bus/bus",
+    "pages/bus-gruop/bus-detail/bus-detail",
     "pages/bus-gruop/buses/buses",
     "pages/train-gruop/train/train",
     "pages/train-gruop/trains/trains",
+    "pages/train-gruop/train-detail/train-detail",
     "pages/train-gruop/citys/citys",
     "pages/my-gruop/my/my",
     "pages/my-gruop/user-info/user-info",

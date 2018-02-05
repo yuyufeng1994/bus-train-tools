@@ -1,0 +1,53 @@
+/* pages/bus-gruop/bus-detail/bus-detail.wxss */
+
+.bottom-view{
+  position: fixed;
+  width: 99%;
+  height: 120rpx;
+  /* border: 1rpx solid red; */
+  background-color: #FFFFFF;
+  bottom: 0rpx;
+}
+
+.bottom-view-button{
+  width: 30%;
+  background-color: #FF6600;
+  color: #FFFFFF;
+  text-align: center;
+  float: right;
+  height:120rpx;
+  line-height: 120rpx;
+  border-radius: 0;
+}
+
+.section{
+   display: flex;
+  flex-direction: row;
+  margin: 30rpx;
+  background-color: #FFFFFF;
+  padding: 30rpx;
+}
+
+.section_gap{
+  display: flex;
+  flex-direction: column;
+}
+
+.section__title{
+  width:230rpx;
+  font-size: 35rpx;
+  color: #555555;
+}
+
+.section > input{
+  margin-left: 30rpx;
+  font-size: 45rpx;
+}
+.section_gap > radio-group{
+  margin-top: 20rpx;
+    display: flex; 
+    /* align-items: center; */
+   flex-direction: column; 
+  /* margin-left: 150rpx; */
+}
+/* pages/bus-gruop/bus-detail/bus-detail.wxss */
