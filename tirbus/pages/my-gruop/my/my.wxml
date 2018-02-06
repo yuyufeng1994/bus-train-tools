@@ -1,35 +1,43 @@
 <!--pages/me/me.wxml-->
 <view class="container">
-  <view class="userinfo" >
-     <block wx:if="{{userInfo.userName == null}}">
+  <view class="userinfo">
+    <block wx:if="{{userInfo.userName == null}}">
       <image class="userinfo-avatar" src="{{userInfo.userFigure}}" background-size="cover" bindtap='editAvatar'></image>
-      <view class='user-name'><text class="userinfo-nickname" >未设置</text><image class='edit-pic' bindtap='toMyUserInfo' src='../../../image/icon/edit.png'></image></view>
+      <view class='user-name'>
+        <text class="userinfo-nickname">未设置</text>
+        <image class='edit-pic' bindtap='toMyUserInfo' src='../../../image/icon/edit.png'></image>
+      </view>
     </block>
     <block wx:else>
-      <image  class="userinfo-avatar" src="{{userInfo.userFigure}}" background-size="cover" bindtap='editAvatar'></image>
-      <view class='user-name'><text class="userinfo-nickname">{{userInfo.userName}}</text><image class='edit-pic'  bindtap='toMyUserInfo'src='../../../image/icon/edit.png'></image></view>
+      <image class="userinfo-avatar" src="{{userInfo.userFigure}}" background-size="cover" bindtap='editAvatar'></image>
+      <view class='user-name'>
+        <text class="userinfo-nickname">{{userInfo.userName}}</text>
+        <image class='edit-pic' bindtap='toMyUserInfo' src='../../../image/icon/edit.png'></image>
+      </view>
     </block>
   </view>
 </view>
 
 <view class='my-info'>
-  <view class='my-info-item' bindtap='bindTest'>
-    <view class='my-info-item-up'>0</view>
-    <view class='my-info-item-down'>当前车次</view>
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>{{listening}}</view>
+    <view class='my-info-item-down'>当前预警</view>
   </view>
-  <view class='my-info-item'  bindtap='bindTest'>
-    <view class='my-info-item-up'>0</view>
+
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>{{notified}}</view>
+    <view class='my-info-item-down'>预警次数</view>
+  </view>
+
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>{{listeningTimes}}</view>
     <view class='my-info-item-down'>监听次数</view>
 
   </view>
-  <view class='my-info-item'  bindtap='bindTest'>
-    <view class='my-info-item-up'>0</view>
-    <view class='my-info-item-down'>预警次数</view>
 
-  </view>
-  <view class='my-info-item'  bindtap='bindTest'>
-    <view class='my-info-item-up'>0</view>
-    <view class='my-info-item-down'>已过期</view>
+  <view class='my-info-item'>
+    <view class='my-info-item-up'>{{listeningAll}}</view>
+    <view class='my-info-item-down'>监听总数</view>
   </view>
 </view>
 
@@ -64,7 +72,7 @@
 
   <view class='view-hr' />
 
-   <button class='button-list-item' bindtap='bindAbout'>
+  <button class='button-list-item' bindtap='bindAbout'>
     <view class='button-list-item-left'>
       <image class='icon-list-item' src='../../../image/icon/information.png'></image>
     </view>

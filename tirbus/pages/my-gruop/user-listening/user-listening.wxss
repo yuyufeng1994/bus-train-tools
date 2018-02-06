@@ -1,33 +1,40 @@
 /* pages/my-gruop/user-listening/user-listening.wxss */
-.item-content{
+
+.item-content {
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
+  background-color: #fff;
   padding: 10rpx;
   margin: 20rpx;
+  border: 1rpx solid #fff;
 }
 
-.item-up{
+.item-up {
   font-size: 35rpx;
   margin-bottom: 15rpx;
 }
 
-.item-down{
+.item-down {
   display: flex;
   flex-direction: row;
   font-size: 30rpx;
 }
 
-.item-down-item{
+.item-down-item {
   margin: 5rpx;
 }
 
-.color-train{
-  color:#096;
+.color-train {
+  color: #096;
   margin-bottom: 15rpx;
+  font-size: 40rpx;
 }
 
-.color-bus{
-  color:#f90;
+.color-bus {
+  color: #f90;
   margin-bottom: 15rpx;
+  font-size: 40rpx;
+}
+.overdue{
+  background-color: #eee;
 }

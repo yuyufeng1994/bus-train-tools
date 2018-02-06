@@ -164,12 +164,9 @@ Page({
               wx.showToast({
                 title: '没有更多数据了',
                 icon: 'none',
-                duration: 2000
+                duration: 1000
               })
             }
-          },
-          complete:function(){
-            wx.hideLoading();
           }
         })
       }, fail: function () {
@@ -181,6 +178,10 @@ Page({
           duration: 1000
         })
         app.doLogin();
+       
+      },
+      complete: function () {
+        wx.hideLoading();
       }
     })
   },

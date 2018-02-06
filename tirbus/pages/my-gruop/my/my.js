@@ -3,12 +3,16 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '欢迎使用巴铁助手',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    userInfo: null
+    userInfo: null,
+    listening:0,
+    listeningTimes:0,
+    notified:0,
+    listeningAll:0
   },
   onLoad: function () {
     this.getUserInfo();
+    this.countListen();
   },
   bindSettings: function () {
     wx.openSetting({})
@@ -18,6 +22,7 @@ Page({
     wx.cont
   },
   onPullDownRefresh: function () {
+    this.countListen();
     setTimeout(function () {
       wx.stopPullDownRefresh();
     }, 1000)
@@ -203,6 +208,44 @@ Page({
       },
       fail: function (res) {
         console.log(res.errMsg)
+      }
+    })
+  },
+  countListen:function(){
+    var that = this
+    var formData = {};
+    wx.getStorage({
+      key: '3rd_session',
+      success: function (res) {
+        formData.session3Rd = res.data
+        formData.key = app.globalData.serverKey
+        wx.request({
+          url: app.globalData.server + '/mp/listening-count',
+          data: formData,
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data.success == true) {
+              that.setData({
+                listening: res.data.data[0],
+                notified: res.data.data[1],
+                listeningTimes: res.data.data[2],
+                listeningAll: res.data.data[3]
+              })
+            }
+          }
+        })
+      }, fail: function () {
+        //拿不到登录信息，则重新登录
+        // console.log("拿不到登录信息，则重新登录")
+        wx.showToast({
+          title: '获取用户信息失败，请重新登录',
+          icon: 'none',
+          duration: 1000
+        })
+        app.doLogin();
       }
     })
   }
