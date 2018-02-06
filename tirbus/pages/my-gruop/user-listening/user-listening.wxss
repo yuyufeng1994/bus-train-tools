@@ -1,0 +1,33 @@
+/* pages/my-gruop/user-listening/user-listening.wxss */
+.item-content{
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  padding: 10rpx;
+  margin: 20rpx;
+}
+
+.item-up{
+  font-size: 35rpx;
+  margin-bottom: 15rpx;
+}
+
+.item-down{
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+}
+
+.item-down-item{
+  margin: 5rpx;
+}
+
+.color-train{
+  color:#096;
+  margin-bottom: 15rpx;
+}
+
+.color-bus{
+  color:#f90;
+  margin-bottom: 15rpx;
+}

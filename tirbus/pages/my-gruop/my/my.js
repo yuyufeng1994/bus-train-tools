@@ -23,10 +23,8 @@ Page({
     }, 1000)
   },
   bindList: function () {
-    wx.showToast({
-      title: '尽请期待',
-      icon: 'loading',
-      duration: 1000
+    wx.navigateTo({
+      url: '../user-listening/user-listening',
     })
   },
   bindTest: function () {

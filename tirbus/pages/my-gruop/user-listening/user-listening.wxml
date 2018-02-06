@@ -1,0 +1,12 @@
+<view wx:for='{{listenList}}'  wx:key="unique" >
+  <view class='item-content'>
+    <view class='item-up'> <view wx:if="{{item.listeningType == '0' || item.listeningType == '1'}}" class='color-train'>火车票</view>
+      <view wx:if="{{item.listeningType == '2' || item.listeningType == '3'}}" class='color-bus'>汽车票</view>{{item.listeningObject}}</view>
+    <view class='item-down'>
+      <view class='item-down-item'>座位:{{item.listeningSeat}}</view>
+      <view class='item-down-item'>余座:{{item.listeningSeatLeft}}</view>
+      <view class='item-down-item'>成功监听:{{item.listeningSuccess}}</view>
+      <view class='item-down-item'>总监听数:{{item.listeningTimes}}</view>
+    </view>
+  </view>
+</view>

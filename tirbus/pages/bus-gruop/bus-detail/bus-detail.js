@@ -29,7 +29,7 @@ Page({
     })
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail)
+    // console.log('form发生了submit事件，携带数据为：', e.detail)
     var formData = {};
     wx.getStorage({
       key: '3rd_session',
