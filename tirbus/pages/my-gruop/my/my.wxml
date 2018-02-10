@@ -31,13 +31,13 @@
 
   <view class='my-info-item'>
     <view class='my-info-item-up'>{{listeningTimes}}</view>
-    <view class='my-info-item-down'>监听次数</view>
+    <view class='my-info-item-down'>监听成功</view>
 
   </view>
 
   <view class='my-info-item'>
     <view class='my-info-item-up'>{{listeningAll}}</view>
-    <view class='my-info-item-down'>监听总数</view>
+    <view class='my-info-item-down'>为您监听</view>
   </view>
 </view>
 
