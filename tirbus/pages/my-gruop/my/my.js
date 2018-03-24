@@ -248,5 +248,51 @@ Page({
         app.doLogin();
       }
     })
+  }, scanTap:function(){
+    //扫码登录
+    // 允许从相机和相册扫码
+    wx.scanCode({
+      success: (res_uuid) => {
+        wx.showModal({
+          title: '登录确认',
+          content: '心得站点（www.yuyufeng.top）请求登录',
+          success: function (res) {
+            if (res.confirm) {
+              var loginInfo = {}
+              loginInfo.scanLoginUUID = res_uuid.result
+              wx.getStorage({
+                key: '3rd_session',
+                success: function (res) {
+                  loginInfo.session3Rd = res.data
+                  loginInfo.key = app.globalData.serverKey
+                  wx.request({
+                    url: app.globalData.server + '/do-login-scan',
+                    data: loginInfo,
+                    header: {
+                      'Content-Type': 'application/json'
+                    },
+                    success: function (res) {
+                      console.log(res)
+                    }
+                  })
+                }, fail: function () {
+                  //拿不到登录信息，则重新登录
+                  // console.log("拿不到登录信息，则重新登录")
+                  wx.showToast({
+                    title: '获取用户信息失败，请重新登录',
+                    icon: 'none',
+                    duration: 1000
+                  })
+                  app.doLogin();
+                }
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+        
+      }
+    })
   }
 })

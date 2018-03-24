@@ -10,6 +10,14 @@
 
 
   <view class='text-title'>版本信息</view>
+ <view class='text-content'>
+    1.0.3->2018年03月19日：支持扫码登录https://www.yuyufeng.top
+  </view>
+
+  <view class='text-content'>
+    1.0.2->2018年02月10日：增加车次监听预警，增加我的车次列表查看。
+  </view>
+
   <view class='text-content'>
     1.0.1->2018年02月01日：加入客服消息；一些界面优化;加入用户登录系统;增加用户资料的修改；
   </view>

@@ -52,6 +52,14 @@
 
   <view class='view-hr' />
 
+  <button class='button-list-item' bindtap='scanTap'>
+    <view class='button-list-item-left'>
+      <image class='icon-list-item' src='../../../image/icon/scanning.png'></image>
+    </view>
+    <view class='button-list-item-middle'>扫码登录</view>
+    <view class='button-list-item-right'>></view>
+  </button>
+ <view class='view-hr' />
   <button class='button-list-item' open-type="contact" session-from="weapp">
     <view class='button-list-item-left'>
       <image class='icon-list-item' src='../../../image/icon/service.png'></image>
