@@ -272,7 +272,25 @@ Page({
                       'Content-Type': 'application/json'
                     },
                     success: function (res) {
-                      console.log(res)
+                      if (res.data.success == true){
+                        wx.showToast({
+                          title: '扫码登录成功',
+                          icon: 'none',
+                          duration: 1000
+                        })
+                      }else{
+                        wx.showToast({
+                          title: '扫码登录失败',
+                          icon: 'none',
+                          duration: 1000
+                        })
+                      }
+                    },fail:function(res){
+                      wx.showToast({
+                        title: '扫码登录失败',
+                        icon: 'none',
+                        duration: 1000
+                      })
                     }
                   })
                 }, fail: function () {
